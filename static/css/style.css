@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to left, #1DA1F2, #56ccf2);
+    font-family: sans-serif;
+    color: #ffffff;
+}

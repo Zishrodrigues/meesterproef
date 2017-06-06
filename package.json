@@ -1,0 +1,19 @@
+{
+  "name": "Meesterproef",
+  "version": "1.0.0",
+  "description": "Project for the exam of the minor web dev",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "zishrodrigues",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "request": "^2.81.0"
+  }
+}
