@@ -10,7 +10,7 @@ I've been asked to help think out and develop a prototype which showcases a mult
 
 ## Project features
 
-I'm focusing on the reader portion of the concept. Which implies that I'll be developing a user interface for the users of the app that want to read articles.
+I'm focusing on the reader portion of the concept. Which implies that I'll be developing a user interface for the users of the app that want to read and rate articles.
 
 ### Must haves
 

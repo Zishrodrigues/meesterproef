@@ -1,18 +1,19 @@
-<a href="">
-    <img src="https://cdn.asiancorrespondent.com/wp-content/uploads/2013/08/Amsterdam-1.jpg" alt="Article image">
-    <section class="articleContent">
-        <h1>Dit is een artikel</h1>
-        <p class="author">
-            Zish K. Pasha
-        </p>
-        <p>
-            Dit artikel heeft geen specifiek onderwerp maar is bedoeld als test
-        </p>
-        <p class="readMore">
-            Lees meer
-        </p>
-    </section>
-</a>
+<ul class="articleList">
+    <% articles.articles.forEach(function(article){ %>
+        <li>
+            <a href="">
+                <div class="thumbnailWrapper">
+                    <img src="<%= article.urlToImage %>" alt="<%= article.title %>">
+                </div>
+                <h1>
+                    <%= article.title %>
+                </h1>
+            </a>
+        </li>
+    <% }); %>
+</ul>
+
+<!--
 <% articles.articles.forEach(function(article){ %>
     <a href="">
         <img src="<%= article.urlToImage %>" alt="Article image">
@@ -30,3 +31,4 @@
         </section>
     </a>
 <% }); %>
+-->

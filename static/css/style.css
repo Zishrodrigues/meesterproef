@@ -2,111 +2,117 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    --main-bg-color: #210002;
-    --main-hightlight-color: #dc731b;
+    --main-bg-color: #2d2d2d;
+    --main-text-color: #ffffff;
+    --main-highlight-color: #b3b3b3;
 }
 
 body {
     /*background: linear-gradient(to left, #f7f6ea , #ffffff);*/
     background-color: var(--main-bg-color);
     font-family: sans-serif;
-    color: #111111;
+    color: var(--main-text-color);
+    padding: 1.5em 0;
 }
 
-/* Folded articles */
-.folded > .articleContent {
-    border: 1px red dashed;
-    height: 0;
-    overflow: hidden;
+/* TOP BAR */
+.topBar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 15em;
+    background-color: #ffeb62;
+    z-index: 0;
 }
 
-.articles {
-    padding: 1.5em;
+
+/* ARTICLES */
+
+.articleList {
+    list-style-type: none;
     display: grid;
     grid-template-columns: 1fr;
     /*grid-template-rows: 15em;*/
-    grid-gap: 1em;
-    flex-direction: column;
+    grid-gap: 0 1em;
+    padding: 1em 1.5em;
 }
 
 @media screen and (min-width: 35em) {
-    .articles {
+    .articleList {
         grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
     }
 }
 
 @media screen and (min-width: 50em) {
-    .articles {
+    .articleList {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media screen and (min-width: 62em) {
-    .articles {
+    .articleList {
         grid-template-columns: repeat(5, 1fr);
     }
 }
 
-
-.articles a {
-    display: block;
-    position: relative;
-    margin: 0 0 4.5em 0;
-    color: #111111;
-    background-color: none;
-}
-
-.articles a img {
-    width: 100%;
-    height: 10em;
-    overflow: hidden;
-    transition: 2s;
-}
-
-.articles a .articleContent {
-    position: absolute;
-    padding: 0.5em;
-    background-color: #f7f6ea;
-    box-shadow: 0px 12px 49px -3px rgba(0,0,0,0.75);
-    border-bottom: 0.2em var(--main-hightlight-color) solid;
-    width: 90%;
-    bottom: -3em;
-    left:0;
-    right:0;
-    margin: 0 auto;
-}
-
-.articles a h1 {
-    min-height: 3.375em;
-    padding-bottom: 0.2em;
-    text-align: center;
-    font-size: 1em;
-    font-weight: bold;
-    color: var(--main-bg-color);
-}
-
-.articles a .author {
-    text-align: center;
-    font-size: 0.8em;
+.articleList li:first-of-type {
+    height: 50vh;
     padding:0;
 }
 
-.articles a p {
-    text-align: center;
-    padding: 0.5em 0;
-    font-size: 0.8em;
-}
-
-.articles a .readMore {
-    text-align: center;
-    padding: 0;
-    color: var(--main-hightlight-color);
-    font-size: 0.8em;
-    font-weight: bold;
-}
-
-.top {
+.articleList li:first-of-type a .thumbnailWrapper {
     position: absolute;
-    top:0;
-    transition: 2s;
+    width: 100%;
+    height: 100%;
+}
+
+.articleList li:first-of-type a .thumbnailWrapper:before {
+    content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(to top,#000000 50%,transparent);
+	opacity: .6;
+    z-index: 100;
+}
+
+.articleList li:first-of-type h1 {
+    position: absolute;
+    color: #ffffff;
+    font-size: 2em;
+    width: 100%;
+    bottom: 0;
+    z-index:101;
+    padding-bottom: 1em;
+}
+
+.articleList li {
+    position: relative;
+    padding: 1em;
+    border-bottom: 0.1em var(--main-bg-color) solid;
+    background-color: #ffffff;
+}
+
+.articleList li a .thumbnailWrapper {
+    width: 30%;
+    height: 5em;
+    overflow: hidden;
+    float: left;
+}
+
+.articleList li a .thumbnailWrapper img {
+    width: auto;
+    height: 100%;
+}
+
+.articleList li h1 {
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    color: var(--main-bg-color);
+    width: 70%;
+    font-size: 1.1em;
+    float: left;
 }
