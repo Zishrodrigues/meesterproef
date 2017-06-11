@@ -20,18 +20,18 @@ I'm focusing on the reader portion of the concept. Which implies that I'll be de
 
 ### Should haves
 
-* Real time feedback when other readers like/rate an articles
-* Search for articles
+- [ ] Real time feedback when other readers like/rate an articles
+- [ ] Search for articles
 
 ### Could haves
 
-* Comment on articles
-* Moodboard for browsing
+- [ ] Comment on articles
+- [ ] Moodboard for browsing
 
 ### Would haves
 
-* Mongo database connection
-* Login/account system
+- [ ] Mongo database connection
+- [ ] Login/account system
 
 ## Installation
 ### Installing locally
