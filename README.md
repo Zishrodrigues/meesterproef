@@ -14,9 +14,9 @@ I'm focusing on the reader portion of the concept. Which implies that I'll be de
 
 ### Must haves
 
-* Browse articles using a clear interface (overview of articles)
-* Like/rate articles
-* Article page (Way to read the entire article)
+[] Browse articles using a clear interface (overview of articles)
+[] Like/rate articles
+[] Article page (Way to read the entire article)
 
 ### Should haves
 
