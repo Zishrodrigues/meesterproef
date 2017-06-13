@@ -1,7 +1,7 @@
 <ul class="articleList">
     <% articles.articles.forEach(function(article){ %>
         <li>
-            <a href="">
+            <a href="/detail">
                 <div class="thumbnailWrapper">
                     <img src="<%= article.urlToImage %>" alt="<%= article.title %>">
                 </div>
@@ -13,22 +13,26 @@
     <% }); %>
 </ul>
 
-<!--
-<% articles.articles.forEach(function(article){ %>
-    <a href="">
-        <img src="<%= article.urlToImage %>" alt="Article image">
-        <section class="articleContent">
-            <h1><%= article.title %></h1>
-            <p class="author">
-                <%= article.author %>
-            </p>
-            <p>
-                <%= article.description %>
-            </p>
-            <p class="readMore">
-                Lees meer
-            </p>
-        </section>
-    </a>
-<% }); %>
--->
+<ul class="articleList">
+    <li>
+        <h1 id="dayOne">
+
+        </h1>
+    </li>
+    <% articles.articles.forEach(function(article){ %>
+        <li>
+            <a href="/detail">
+                <div class="thumbnailWrapper">
+                    <img src="<%= article.urlToImage %>" alt="<%= article.title %>">
+                </div>
+                <h1>
+                    <%= article.title %>
+                </h1>
+            </a>
+        </li>
+    <% }); %>
+</ul>
+
+<% articles.articles.forEach(function(article) { %>
+    <% if (article.title.match("Trump")) { %>
+<%}}); %>

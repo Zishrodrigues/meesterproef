@@ -21,12 +21,20 @@ body {
     top: 0;
     width: 100%;
     height: 15em;
+    padding: 1em 1.5em;
+    color: var(--main-bg-color);
     background-color: #ffeb62;
     z-index: 0;
 }
 
-
+.topBar h1 {
+    font-size: 1.5em;
+}
 /* ARTICLES */
+
+.articles {
+    padding-top: 2em;
+}
 
 .articleList {
     list-style-type: none;
@@ -34,7 +42,7 @@ body {
     grid-template-columns: 1fr;
     /*grid-template-rows: 15em;*/
     grid-gap: 0 1em;
-    padding: 1em 1.5em;
+    padding: 0 1.5em;
 }
 
 @media screen and (min-width: 35em) {
@@ -56,18 +64,24 @@ body {
     }
 }
 
-.articleList li:first-of-type {
-    height: 50vh;
-    padding:0;
+.articleList:first-of-type li {
+    border-right: 0.2em #ffeb62 solid;
 }
 
-.articleList li:first-of-type a .thumbnailWrapper {
+.articleList:first-of-type li:first-of-type {
+    height: 50vh;
+    padding:0;
+    position: relative;
+    border-right: none;
+}
+
+.articleList:first-of-type li:first-of-type a .thumbnailWrapper {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.articleList li:first-of-type a .thumbnailWrapper:before {
+.articleList:first-of-type li:first-of-type a .thumbnailWrapper:before {
     content: '';
 	position: absolute;
 	top: 0;
@@ -79,7 +93,7 @@ body {
     z-index: 100;
 }
 
-.articleList li:first-of-type h1 {
+.articleList:first-of-type li:first-of-type h1 {
     position: absolute;
     color: #ffffff;
     font-size: 2em;
@@ -89,11 +103,26 @@ body {
     padding-bottom: 1em;
 }
 
+.articleList li:first-of-type {
+    background-color: #ff6161;
+    border:none;
+    position: sticky;
+    top:0;
+    z-index: 109;
+    padding:1em;
+    color: var(--main-bg-color);
+}
+
+.articleList li:first-of-type h1 {
+    font-size: 1.5em;
+}
+
 .articleList li {
     position: relative;
     padding: 1em;
     border-bottom: 0.1em var(--main-bg-color) solid;
     background-color: #ffffff;
+    border-right: 0.2em #ff6161 solid;
 }
 
 .articleList li a .thumbnailWrapper {

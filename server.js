@@ -20,6 +20,10 @@ app.get('/', function (req, res) {
   }
 });
 
+app.get('/detail', function (req, res) {
+    res.render('pages/detail');
+});
+
 function load(url, callback) {
   request(url, function(err, res, body) {
     if (err) console.warn(err);
