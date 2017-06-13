@@ -178,6 +178,28 @@ body {
     width: auto;
 }
 
+.detailImageWrapper h2 {
+    position: absolute;
+    top: 3em;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 70%;
+    z-index: 102;
+    font-size: 1.2em;
+}
+
+.detailImageWrapper p {
+    position: absolute;
+    bottom: 6em;
+    left: 2.3em;
+    z-index: 102;
+    padding: 0.5em;
+    font-weight: bold;
+    background-color: #ff6161;
+    max-width: 90%;
+}
+
 .detailImageWrapper h1 {
     position: absolute;
     bottom: 1em;
