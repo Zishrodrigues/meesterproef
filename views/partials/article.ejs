@@ -1,7 +1,7 @@
 <ul class="articleList">
     <% articles.articles.forEach(function(article){ %>
         <li>
-            <a href="/detail">
+            <a href="/<%= article.title %>">
                 <div class="thumbnailWrapper">
                     <img src="<%= article.urlToImage %>" alt="<%= article.title %>">
                 </div>

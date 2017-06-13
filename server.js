@@ -12,16 +12,25 @@ app.set('views', 'views');
 
 app.get('/', function (req, res) {
     // res.render('pages/index');
-    console.log(url);
     load(url, callback);
     function callback(data) {
       res.render('pages/index', { articles: data });
-      console.log(data);
   }
 });
 
-app.get('/detail', function (req, res) {
-    res.render('pages/detail');
+app.get('/:title', function(req, res) {
+    var title = req.params.title;
+    // request(detailUrl + req.params.Id, function (error, response, body) {
+    //     var data = JSON.parse(body);
+    //     res.render('pages/detail', {properties: data});
+    // });
+    load(url, callback);
+    function callback(data) {
+        var filtered = data.articles.filter(function ( val ) {
+            return val.title === title;
+        })[0];
+        res.render('pages/detail', { articles: filtered });
+    }
 });
 
 function load(url, callback) {
