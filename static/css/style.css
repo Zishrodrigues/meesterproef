@@ -191,7 +191,7 @@ body {
 
 .detailImageWrapper p {
     position: absolute;
-    bottom: 6em;
+    bottom: 7em;
     left: 2.3em;
     z-index: 102;
     padding: 0.5em;
@@ -206,4 +206,24 @@ body {
     left: 1.5em;
     z-index: 102;
     max-width: 90%;
+}
+
+.detailContent {
+    background-color: #ffffff;
+    color: var(--main-bg-color);
+    padding: 2em;
+}
+
+/* COMMENTS */
+.detailComments {
+    border:1px red dashed;
+}
+
+.commentsList {
+    border:1px green dashed;
+    width: 100%;
+}
+
+.commentsList li {
+    border:1px orange dashed;
 }
