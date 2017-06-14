@@ -14,7 +14,7 @@ Index of this readme:
 
 ## Project description
 
-The Persgroep is concepting a app/website that allows young users (20-30) to post articles and browse/read them. So it's new by younger people for younger people. The ultimate goal is to have content which appeals to younger users because it's written by they're peers.
+The Persgroep is concepting a app/website that allows young users (20-30) to post articles and browse/read them. So it's articles by younger people for younger people. The ultimate goal is to have content which appeals to younger users because it's written by they're peers.
 
 I've been asked to help think out and develop a prototype which showcases a multitude of features and interfaces which would suit the concept that Persgroep has layed before us.
 
@@ -27,6 +27,14 @@ Readers can read the article, and at the same time see what others have to say a
 Lower in this readme list can be found with features that the project must, should and could have.
 
 ## Project progress (Last updated: 14-06-2017)
+
+#### Datamodel (work in progress, feedback is greatly appreciated)
+![datamodel](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/datamodel.jpeg)
+
+#### Code flow (work in progress, feedback is greatly appreciated)
+![codeflow](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/codeflow.jpeg)
+
+In my current workflow the server.js handles templates and routes. As well as setting up a socket.io communication. Client-side javascript is used to communicate user input to the user via sockets and enhancements like animations. Using local storage I'll be tracking and saving read articles and comments.
 
 ### First week: Research, brainstorm & concept
 
