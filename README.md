@@ -55,6 +55,10 @@ These make sure I have my templating and server needs covered. I also started st
 
 After spending the first two weeks floating between several concepts and talking with the inspiring teachers at school I decided it was time to bite down on a single concept and go for it. Thus my project 'Read an article, or be part of one'. I started getting more serious in my coding and am building key features like the comment system. I'm also figuring out what the best way is to generate or call data for the prototype.
 
+![ux progress](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/progress.jpg)
+
+Progress of the UI.
+
 ### Fourth week: Square eyes
 
 Details to be announced. This will be the week of hardcore coding and making sure everything works and is tested.
