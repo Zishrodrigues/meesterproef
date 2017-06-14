@@ -15,7 +15,8 @@ app.get('/', function (req, res) {
     // res.render('pages/index');
     load(url, callback);
     function callback(data) {
-      res.render('pages/index', { articles: data });
+        console.log(data);
+        res.render('pages/index', { articles: data });
   }
 });
 
