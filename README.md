@@ -29,10 +29,10 @@ Lower in this readme list can be found with features that the project must, shou
 ## Project progress (Last updated: 14-06-2017)
 
 #### Datamodel (work in progress, feedback is greatly appreciated)
-![datamodel](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/datamodel.jpeg)
+![datamodel](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/datamodel.jpg)
 
 #### Code flow (work in progress, feedback is greatly appreciated)
-![codeflow](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/codeflow.jpeg)
+![codeflow](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/codeflow.jpg)
 
 In my current workflow the server.js handles templates and routes. As well as setting up a socket.io communication. Client-side javascript is used to communicate user input to the user via sockets and enhancements like animations. Using local storage I'll be tracking and saving read articles and comments.
 
