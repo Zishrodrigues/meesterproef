@@ -122,5 +122,4 @@ If you get the message `app listening in port 1337 ` the server started successf
 ### Used packages
 * express
 * socket.io
-* body-parser
 * ejs
