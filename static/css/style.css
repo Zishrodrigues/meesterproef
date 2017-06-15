@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     --main-bg-color: #2d2d2d;
     --main-text-color: #ffffff;
     --main-highlight-color: #b3b3b3;
