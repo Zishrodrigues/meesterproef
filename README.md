@@ -115,7 +115,7 @@ Make sure port 1337 isn't being used by another project. If this is the case run
 ```
 $ npm run start
 ```
-If you get the message ```app listening in port 1337 ``` the server started successfully on localhost:1337.
+If you get the message `app listening in port 1337 ` the server started successfully on localhost:1337.
 
 ## Sources
 
