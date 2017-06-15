@@ -43,7 +43,7 @@
             };
             socket.on('place comment', function(msg) { // receive new comment from server
                 var listItem = document.createElement('li'); // create list element in comment list
-                config.elements.commentsList.appendChild(listItem).textContent=(msg); // add comment to list
+                config.elements.commentsList.appendChild(listItem).textContent=msg; // add comment to list
             });
         }
     };
