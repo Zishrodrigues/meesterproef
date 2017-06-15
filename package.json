@@ -2,6 +2,7 @@
   "name": "Meesterproef",
   "version": "1.0.0",
   "description": "Project for the exam of the minor web dev",
+  "private": true,
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
