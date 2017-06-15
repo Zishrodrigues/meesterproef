@@ -27,8 +27,8 @@
             var date = new Date(); // get date
             var dayName = listDates.dayNames[date.getDay()]; // get day number and match to dayNames array. (0 = sunday etc)
             if(window.location.pathname == '/') { // page location check
-                config.elements.todayHeader.innerHTML = dayName; // Add day name to list
-                config.elements.dayOne.innerHTML = listDates.dayNames[date.getDay() - 1];
+                config.elements.todayHeader.textContent = dayName; // Add day name to list
+                config.elements.dayOne.textContent = listDates.dayNames[date.getDay() - 1];
             }
         }
     };
@@ -43,7 +43,7 @@
             };
             socket.on('place comment', function(msg) { // receive new comment from server
                 var listItem = document.createElement('li'); // create list element in comment list
-                config.elements.commentsList.appendChild(listItem).innerHTML=(msg); // add comment to list
+                config.elements.commentsList.appendChild(listItem).textContent=(msg); // add comment to list
             });
         }
     };
