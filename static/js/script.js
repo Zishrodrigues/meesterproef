@@ -35,12 +35,13 @@
 
     var comments = {
         placeComment: function(){
-            config.elements.commentForm.onsubmit = function() { // submit the comment form
+            console.log('testt');
+            config.elements.commentForm.addEventListener('submit', function(e){  // submit the comment form
+                e.preventDefault();
                 var value = commentInput.value; // get the form comment form value
                 socket.emit('place comment', value); // send value to server
                 value = ''; // reset value to null
-                return false;
-            };
+            });
             socket.on('place comment', function(msg) { // receive new comment from server
                 var listItem = document.createElement('li'); // create list element in comment list
                 config.elements.commentsList.appendChild(listItem).textContent=msg; // add comment to list
