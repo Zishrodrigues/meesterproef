@@ -100,21 +100,21 @@ Using the following steps you can install and use the app locally.
 
 #### Cloning or downloading the repo
 
-```
+`
 $ git clone https://github.com/Zishrodrigues/meesterproef.git
-```
+`
 #### Installing the required dependencies
 Run the following command in the root:
-```
+`
 $ npm install
-```
+`
 Wait for the required npm packages to install and proceed further.
 
 #### Starting and running the server
 Make sure port 1337 isn't being used by another project. If this is the case run the following command in the root folder.
-```
+`
 $ npm run start
-```
+`
 If you get the message `app listening in port 1337 ` the server started successfully on localhost:1337.
 
 ## Sources
