@@ -6,13 +6,13 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var url = process.env.APIURL;
+var commentsArray = [];
 
 app.use(express.static('static'));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.get('/', function (req, res) {
-    // res.render('pages/index');
     load(url, callback);
     function callback(data) {
         console.log(data);
@@ -46,6 +46,8 @@ io.on('connection', function(socket){
     console.log('Hey there!');
 
     socket.on('place comment', function(comment){
+        commentsArray.push(comment);
+        io.emit('place articleComment', commentsArray);
         io.emit('place comment', comment);
     });
 
