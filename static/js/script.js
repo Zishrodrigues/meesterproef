@@ -35,7 +35,6 @@
 
     var comments = {
         placeComment: function(){
-            console.log('testt');
             config.elements.commentForm.addEventListener('submit', function(e){  // submit the comment form
                 e.preventDefault();
                 var value = commentInput.value; // get the form comment form value

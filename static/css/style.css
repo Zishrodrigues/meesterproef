@@ -200,7 +200,7 @@ body {
     padding: 0.5em;
     font-weight: bold;
     background-color: #ff6161;
-    max-width: 90%;
+    max-width: 85%;
 }
 
 .detailImageWrapper h1 {
@@ -208,13 +208,36 @@ body {
     bottom: 1em;
     left: 1.5em;
     z-index: 102;
-    max-width: 90%;
+    max-width: 85%;
 }
 
 .detailContent {
     background-color: #ffffff;
     color: var(--main-bg-color);
     padding: 2em;
+    overflow-x: hidden;
+}
+
+.detailContent p {
+    margin-bottom: 1em;
+}
+
+.detailContent .textComment {
+    background-color: #ff6161;
+    color: #ffffff;
+    padding: 1em;
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.detailContent .textComment:after {
+    background-color: inherit;
+    right:-3em;
+    top:0;
+    width:3em;
+    height: 100%;
+    position: absolute;
+    content: "";
 }
 
 /* COMMENTS */
