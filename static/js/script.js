@@ -1,5 +1,4 @@
 (function() {
-    "use strict";
 
     var socket = io();
 
@@ -53,8 +52,11 @@
                 config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<button class="likeButton" id="'+ msg.commentId +'">Like</button>'; // add comment to list
                 comments.likeComment();
             });
-            socket.on('place articleComment', function(msg) { // receive commentArray from server
-                console.log(msg);
+            socket.on('place articleComment', function(comments) { // receive commentArray from server
+                var sorted = comments.sort(function(a, b) {
+                    return parseFloat(b.likes) - parseFloat(a.likes);
+                });
+                console.log(sorted);
             });
         },
         likeComment: function() {
@@ -65,7 +67,8 @@
                 }
             }
             function likeComment() {
-                console.log('kek');
+                console.log('clicked like button ' + this.id);
+                socket.emit('like comment', this.id);
             }
         }
     };

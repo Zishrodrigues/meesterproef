@@ -47,8 +47,18 @@ io.on('connection', function(socket){
 
     socket.on('place comment', function(comment){
         commentsArray.push(comment);
-        io.emit('place articleComment', commentsArray);
         io.emit('place comment', comment);
+    });
+
+    socket.on('like comment', function(id){
+        for (var i=0; i < commentsArray.length; i++) {
+            if (commentsArray[i].commentId == id) {
+                console.log('found ' + commentsArray[i].commentId);
+                commentsArray[i].likes++;
+                console.log('new likes = ' + commentsArray[i].likes);
+            }
+        }
+        io.emit('place articleComment', commentsArray);
     });
 
     socket.on('disconnect', function(){
