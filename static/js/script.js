@@ -9,7 +9,10 @@
             commentsList: document.getElementById('comments'),
             commentForm: document.getElementById('commentForm'),
             commentInput: document.getElementById('commentInput'),
-            likeButton: document.getElementsByClassName('likeButton')
+            likeButton: document.getElementsByClassName('likeButton'),
+            commentOne: document.getElementById('articleComment-one'),
+            commentTwo: document.getElementById('articleComment-two'),
+            commentThree: document.getElementById('articleComment-three')
         }
     };
 
@@ -42,9 +45,8 @@
                 messageObj.commentId = Math.floor((Math.random() * 1000000) + 1);
                 messageObj.likes = 0;
                 console.log(messageObj);
-                var value = commentInput.value; // get the form comment form value
                 socket.emit('place comment', messageObj); // send value to server
-                value = ''; // reset value to null
+                commentInput.value = ''; // reset value to null
             });
             socket.on('place comment', function(msg) { // receive new comment from server
                 var listItem = document.createElement('li'); // create list element in comment list
@@ -57,7 +59,13 @@
                     return parseFloat(b.likes) - parseFloat(a.likes);
                 });
                 console.log(sorted);
+                config.elements.commentOne.innerText=sorted[0].comment;
+                config.elements.commentTwo.innerText=sorted[1].comment;
+                config.elements.commentThree.innerText=sorted[2].comment;
             });
+        },
+        articleComment: function(sorted) {
+            console.log(sorted);
         },
         likeComment: function() {
             for (var i = 0; i < config.elements.likeButton.length; i++) {
