@@ -6,47 +6,44 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var url = process.env.APIURL;
-var commentsArray = [];
+
+var commentsArray = [{comment:'This is a comment', commentId:'7777777', likes:0, articleId:'1'},{comment:'This is a comment2', commentId:'55555', likes:0, articleId:'2'}];
+var articleData = require('./articles.json');
+// var articleData = JSON.parse('./articles.json');
+
+// var filtered = articleData.articles.filter(function ( val ) {
+//     return val.title === title;
+// })[0];
+// console.log('FILTERED' + filtered);
 
 app.use(express.static('static'));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.get('/', function (req, res) {
-    load(url, callback);
-    function callback(data) {
-        console.log(data);
-        res.render('pages/index', { articles: data });
-  }
+    res.render('pages/index', { articles: articleData });
 });
 
-app.get('/:title', function(req, res) {
-    var title = req.params.title;
-    // request(detailUrl + req.params.Id, function (error, response, body) {
-    //     var data = JSON.parse(body);
-    //     res.render('pages/detail', {properties: data});
-    // });
-    load(url, callback);
-    function callback(data) {
-        var filtered = data.articles.filter(function ( val ) {
-            return val.title === title;
-        })[0];
-        res.render('pages/detail', { articles: filtered });
-    }
+app.get('/:id', function(req, res) {
+    var id = req.params.id;
+    console.log(id);
+    var filtered = articleData.articles.filter(function ( val ) {
+        return val.id === id;
+    })[0];
+    var filteredComments = commentsArray.filter(function ( val ) {
+        return val.articleId === id;
+    })[0];
+    console.log(filteredComments);
+    res.render('pages/detail', { articles: filtered, comments:filteredComments });
 });
 
-function load(url, callback) {
-  request(url, function(err, res, body) {
-    if (err) console.warn(err);
-    callback(JSON.parse(body));
-  });
-}
 
 io.on('connection', function(socket){
     console.log('Hey there!');
 
     socket.on('place comment', function(comment){
         commentsArray.push(comment);
+        io.emit('place articleComment', commentsArray);
         io.emit('place comment', comment);
     });
 

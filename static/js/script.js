@@ -44,6 +44,7 @@
                 messageObj.comment = commentInput.value;
                 messageObj.commentId = Math.floor((Math.random() * 1000000) + 1);
                 messageObj.likes = 0;
+                messageObj.articleId =  window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
                 console.log(messageObj);
                 socket.emit('place comment', messageObj); // send value to server
                 commentInput.value = ''; // reset value to null
@@ -60,8 +61,11 @@
                 });
                 console.log(sorted);
                 config.elements.commentOne.innerText=sorted[0].comment;
-                config.elements.commentTwo.innerText=sorted[1].comment;
-                config.elements.commentThree.innerText=sorted[2].comment;
+                if (sorted[1]) {
+                    config.elements.commentTwo.innerText=sorted[1].comment;
+                } if (sorted[2]) {
+                    config.elements.commentThree.innerText=sorted[2].comment;
+                }
             });
         },
         articleComment: function(sorted) {
