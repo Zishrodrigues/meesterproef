@@ -52,19 +52,25 @@
             socket.on('place comment', function(msg) { // receive new comment from server
                 var listItem = document.createElement('li'); // create list element in comment list
                 var listButton = document.createElement('button');
-                config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<button class="likeButton" id="'+ msg.commentId +'">Like</button>'; // add comment to list
-                comments.likeComment();
+                if (msg.articleId == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1')) {
+                    config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<button class="likeButton" id="'+ msg.commentId +'">Like</button>'; // add comment to list
+                    comments.likeComment();
+                }
             });
             socket.on('place articleComment', function(comments) { // receive commentArray from server
                 var sorted = comments.sort(function(a, b) {
                     return parseFloat(b.likes) - parseFloat(a.likes);
                 });
+                var articleFilter = sorted.filter(function(val) {
+                    return val.articleId == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
+                });
                 console.log(sorted);
-                config.elements.commentOne.innerText=sorted[0].comment;
-                if (sorted[1]) {
-                    config.elements.commentTwo.innerText=sorted[1].comment;
-                } if (sorted[2]) {
-                    config.elements.commentThree.innerText=sorted[2].comment;
+                console.log(articleFilter);
+                config.elements.commentOne.innerText=articleFilter[0].comment;
+                if (articleFilter[1]) {
+                    config.elements.commentTwo.innerText=articleFilter[1].comment;
+                } if (articleFilter[2]) {
+                    config.elements.commentThree.innerText=articleFilter[2].comment;
                 }
             });
         },

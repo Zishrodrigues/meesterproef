@@ -37,7 +37,6 @@ app.get('/:id', function(req, res) {
     res.render('pages/detail', { articles: filtered, comments:filteredComments });
 });
 
-
 io.on('connection', function(socket){
     console.log('Hey there!');
 
