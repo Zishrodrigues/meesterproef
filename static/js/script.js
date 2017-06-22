@@ -6,6 +6,9 @@
         elements: {
             todayHeader: document.getElementById('todayHeader'),
             dayOne: document.getElementById('dayOne'),
+            overlay: document.getElementById('overlay'),
+            userForm: document.getElementById('userForm'),
+            username: document.getElementById('username'),
             commentsList: document.getElementById('comments'),
             commentForm: document.getElementById('commentForm'),
             commentInput: document.getElementById('commentInput'),
@@ -19,8 +22,26 @@
     var app = {
         init: function() { // Initializing the app and calling methods needed on startup
             console.log('app started :)');
+            username.checkUsername();
             listDates.setDay();
             comments.placeComment();
+        }
+    };
+
+    var username = {
+        checkUsername: function() {
+            if(!localStorage.getItem('username')) {
+                username.enterUsername();
+            }
+        },
+        enterUsername: function() {
+            config.elements.overlay.classList.remove("hide");
+            config.elements.userForm.addEventListener("submit", function(e){
+                e.preventDefault();
+                localStorage.setItem('username', config.elements.username.value);
+                console.log('Your nickname is ' + config.elements.username.value);
+                config.elements.overlay.classList.add("hide");
+            });
         }
     };
 

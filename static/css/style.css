@@ -253,3 +253,40 @@ body {
 .commentsList li {
     border:1px orange dashed;
 }
+
+/* NICKNAME */
+.usernameOverlay {
+  position: absolute;
+  z-index: 9999;
+  text-align: center;
+  width:100%;
+  height: 100%;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  opacity:1;
+  background: rgba(00, 00, 00, 0.5);
+  animation: overlay 0.5s linear;
+}
+
+@keyframes overlay {
+  0% {
+    opacity: 0;
+    left:-110vw;
+  }
+  80% {
+    opacity: 1;
+    left:0;
+  }
+  100% {
+    opacity: 1;
+    left:0;
+  }
+}
+
+/* GENERAL */
+
+.hide {
+    display: none;
+}
