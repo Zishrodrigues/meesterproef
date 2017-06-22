@@ -76,11 +76,12 @@ I'm focusing on the reader portion of the concept. Which implies that I'll be de
 - [x] Browse articles using a clear interface (overview of articles)
 - [x] Comment on articles
 - [x] Article page with comments (Way to read the entire article)
-- [ ] Good interface
+- [x] Good interface
 
 ### Should haves
 
-- [ ] Real time feedback when other readers comment on articles
+- [x] Real time feedback when other readers comment on articles
+- [x] Username
 - [ ] Search for articles
 - [ ] Tags for articles
 
@@ -91,7 +92,6 @@ I'm focusing on the reader portion of the concept. Which implies that I'll be de
 ### Would haves
 
 - [ ] Mongo database connection
-- [ ] Login/account system
 
 ## Installation
 ### Installing locally
