@@ -94,9 +94,10 @@
                 console.log(articleFilter);
                 config.elements.commentOne.innerText=articleFilter[0].comment;
                 if (articleFilter[1]) {
-                    config.elements.commentTwo.innerText=articleFilter[1].comment;
+                    document.querySelector('#articleComment-two p').innerText=articleFilter[1].comment;
+                    // config.elements.commentTwo.innerText=articleFilter[1].comment;
                 } if (articleFilter[2]) {
-                    config.elements.commentThree.innerText=articleFilter[2].comment;
+                    document.querySelector('#articleComment-three p').innerText=articleFilter[2].comment;
                 }
             });
         },
