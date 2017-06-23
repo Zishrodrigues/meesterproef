@@ -15,6 +15,7 @@ body {
     background-color: var(--main-bg-color);
     font-family: sans-serif;
     color: var(--main-text-color);
+    overflow-x: hidden;
 }
 
 /* TOP BAR */
@@ -216,10 +217,12 @@ body {
     color: var(--main-bg-color);
     padding: 2em;
     overflow-x: hidden;
+    position: relative;
 }
 
 .detailContent p {
-    margin-bottom: 1em;
+    padding-top: 1em;
+    transition: 1s;
 }
 
 .detailContent .textComment {
@@ -227,7 +230,10 @@ body {
     color: #ffffff;
     padding: 1em;
     margin-bottom: 1em;
-    position: relative;
+    transition: 1s;
+    position: absolute;
+    width: 70%;
+    right: -70%;
 }
 
 .detailContent .textComment:after {
@@ -238,6 +244,22 @@ body {
     height: 100%;
     position: absolute;
     content: "";
+}
+
+.detailContent .textComment.openComment {
+    right:0;
+}
+
+.detailContent .textComment .commentIcon {
+    position: absolute;
+    left:-3em;
+    top: 1em;
+    width: 2em;
+    height: 2em;
+    background-image: url("../images/message-icon.png");
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
 }
 
 /* COMMENTS */

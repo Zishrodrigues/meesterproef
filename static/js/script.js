@@ -15,7 +15,11 @@
             likeButton: document.getElementsByClassName('likeButton'),
             commentOne: document.getElementById('articleComment-one'),
             commentTwo: document.getElementById('articleComment-two'),
-            commentThree: document.getElementById('articleComment-three')
+            commentThree: document.getElementById('articleComment-three'),
+            iconTwo: document.getElementById('iconTwo'),
+            iconThree: document.getElementById('iconThree'),
+            paragraphTwo: document.getElementById('paragraphTwo'),
+            paragraphThree: document.getElementById('paragraphThree')
         }
     };
 
@@ -25,6 +29,7 @@
             username.checkUsername();
             listDates.setDay();
             comments.placeComment();
+            comments.tab();
         }
     };
 
@@ -95,8 +100,23 @@
                 }
             });
         },
-        articleComment: function(sorted) {
-            console.log(sorted);
+        tab: function() {
+            config.elements.iconTwo.addEventListener('click', function() {
+                showComment(config.elements.commentTwo, config.elements.paragraphTwo);
+            });
+            config.elements.iconThree.addEventListener('click', function() {
+                showComment(config.elements.commentThree, config.elements.paragraphThree);
+            });
+            function showComment(id, p) {
+                console.log(id.offsetHeight);
+                if (id.classList.contains("openComment")) {
+                    id.classList.remove("openComment");
+                    p.style.paddingTop = '1em';
+                } else {
+                    id.classList.add("openComment");
+                    p.style.paddingTop = id.offsetHeight + 20 + 'px';
+                }
+            }
         },
         likeComment: function() {
             for (var i = 0; i < config.elements.likeButton.length; i++) {
