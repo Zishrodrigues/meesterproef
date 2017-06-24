@@ -183,15 +183,16 @@ body {
     width: auto;
 }
 
-.detailImageWrapper h2 {
+.detailImageWrapper .headerComment {
     position: absolute;
     top: 3em;
     left: 0;
     right: 0;
     margin: 0 auto;
-    max-width: 70%;
+    max-width: 80%;
     z-index: 102;
-    font-size: 1.2em;
+    font-size: 1rem;
+    background: none;
 }
 
 .detailImageWrapper p {
@@ -389,7 +390,7 @@ body {
 }
 
 .userForm input[type="submit"] {
-    appearance: none;  
+    appearance: none;
     background-color: #ffffff;
     border: 0.1em #ff6161 solid;
     padding: 0.5em;
