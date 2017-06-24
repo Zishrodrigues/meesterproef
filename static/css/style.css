@@ -45,7 +45,6 @@ body {
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr;
-    /*grid-template-rows: 15em;*/
     grid-gap: 0 1em;
     padding: 0 1.5em;
 }
@@ -115,6 +114,7 @@ body {
     top:0;
     z-index: 109;
     padding:1em;
+    min-height: 4em;
     color: var(--main-bg-color);
 }
 
@@ -125,6 +125,7 @@ body {
 .articleList li {
     position: relative;
     padding: 1em;
+    min-height: 8em;
     border-bottom: 0.1em var(--main-bg-color) solid;
     background-color: #ffffff;
     border-right: 0.2em #ff6161 solid;
@@ -268,6 +269,13 @@ body {
 }
 
 /* COMMENTS */
+.commentsHeader {
+    background-color: #ffffff;
+    font-size: 1em;
+    padding: 0 0 0.5em 2em;
+    color: #ff6161;
+}
+
 .detailComments {
     max-width: 50em;
     margin: 0 auto;
@@ -310,6 +318,38 @@ body {
     bottom: 0;
 }
 
+.commentsForm {
+    background-color: #ffffff;
+    border: none;
+}
+
+.commentsForm input[type="text"] {
+    background-color: #ffffff;
+    color: #ff6161;
+    padding: 0.5em;
+    font-size: 1rem;
+    width: 70%;
+    float: left;
+    border: 0.1em #ff6161 solid;
+}
+
+.commentsForm input[type="submit"] {
+    background-color: #ffffff;
+    border: 0.1em #ff6161 solid;
+    color: #ff6161;
+    padding: 0.5em;
+    font-size: 1rem;
+    float: right;
+    width: 30%;
+    cursor: pointer;
+}
+
+.commentsForm input[type="submit"]:hover,
+.commentsForm input[type="submit"]:focus {
+    background-color: #ff6161;
+    color: #ffffff;
+}
+
 /* NICKNAME */
 .usernameOverlay {
   position: absolute;
@@ -324,6 +364,44 @@ body {
   opacity:1;
   background: rgba(00, 00, 00, 0.5);
   animation: overlay 0.5s linear;
+}
+
+.userForm {
+    display: inline-block;
+    padding: 1em;
+    margin: 2em auto;
+    background-color: #ffffff;
+    color: #ff6161;
+    font-size: 1.5em;
+}
+
+.userForm label {
+    display: block;
+    padding: 1em;
+}
+
+.userForm input[type="text"] {
+    border: 0.1em #ff6161 solid;
+    padding: 0.5em;
+    color: #ff6161;
+    font-size: 1rem;
+}
+
+.userForm input[type="submit"] {
+    background-color: #ffffff;
+    border: 0.1em #ff6161 solid;
+    padding: 0.5em;
+    color: #ff6161;
+    cursor: pointer;
+}
+
+.userForm input[type="submit"]:hover,
+.userForm input[type="submit"]:focus
+ {
+    background-color: #ff6161;
+    border: 0.1em #ff6161 solid;
+    padding: 0.5em;
+    color: #ffffff;
 }
 
 @keyframes overlay {
