@@ -74,6 +74,7 @@
                 messageObj.comment = commentInput.value;
                 messageObj.commentId = Math.floor((Math.random() * 1000000) + 1);
                 messageObj.likes = 0;
+                messageObj.user = localStorage.getItem('username');
                 messageObj.articleId =  window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
                 socket.emit('place comment', messageObj); // send value to server
                 commentInput.value = ''; // reset value to null
@@ -83,7 +84,7 @@
                 var listButton = document.createElement('button');
                 console.log(msg);
                 if (msg.articleId == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1')) {
-                    config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<span class="likes" id="id' + msg.commentId + '">' + 'Likes: ' + msg.likes + '</span><p class="author">Written by: ' + localStorage.getItem('username') + '</p><button class="likeButton" id="' + msg.commentId +'">Like</button>'; // add comment to list
+                    config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<span class="likes" id="id' + msg.commentId + '">' + 'Likes: ' + msg.likes + '</span><p class="author">Written by: ' + msg.user + '</p><button class="likeButton" id="' + msg.commentId +'">Like</button>'; // add comment to list
                     comments.likeComment();
                 }
             });

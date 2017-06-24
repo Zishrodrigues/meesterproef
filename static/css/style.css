@@ -334,6 +334,7 @@ body {
 }
 
 .commentsForm input[type="submit"] {
+    appearance: none;
     background-color: #ffffff;
     border: 0.1em #ff6161 solid;
     color: #ff6161;
@@ -388,6 +389,7 @@ body {
 }
 
 .userForm input[type="submit"] {
+    appearance: none;  
     background-color: #ffffff;
     border: 0.1em #ff6161 solid;
     padding: 0.5em;
