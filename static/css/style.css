@@ -269,16 +269,45 @@ body {
 
 /* COMMENTS */
 .detailComments {
-    border:1px red dashed;
+    max-width: 50em;
+    margin: 0 auto;
 }
 
 .commentsList {
-    border:1px green dashed;
-    width: 100%;
+    background-color: #ff6161;
+    list-style-type: none;
 }
 
 .commentsList li {
-    border:1px orange dashed;
+    border-bottom: 0.1em #ffffff solid;
+    position: relative;
+    padding: 1em 2em;
+    font-size: 0.9em;
+}
+
+.commentsList li .likes {
+    display: block;
+    font-size: 0.8em;
+    padding: 0.5em 0 0 0;
+    font-style: bold;
+}
+
+.commentsList li .author {
+    display: block;
+    font-size: 1em;
+    padding: 0;
+    font-style: italic;
+}
+
+.commentsList li button {
+    background-color: #ffffff;
+    color: #ff6161;
+    cursor: pointer;
+    border: none;
+    padding: 0.5em;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 /* NICKNAME */

@@ -30,6 +30,7 @@
             listDates.setDay();
             comments.placeComment();
             comments.tab();
+            comments.initial();
         }
     };
 
@@ -44,7 +45,6 @@
             config.elements.userForm.addEventListener("submit", function(e){
                 e.preventDefault();
                 localStorage.setItem('username', config.elements.username.value);
-                console.log('Your nickname is ' + config.elements.username.value);
                 config.elements.overlay.classList.add("hide");
             });
         }
@@ -63,6 +63,10 @@
     };
 
     var comments = {
+        initial: function() {
+            config.elements.commentsList.innerHTML = '';
+            socket.emit('insert comments');
+        },
         placeComment: function(){
             config.elements.commentForm.addEventListener('submit', function(e){  // submit the comment form
                 e.preventDefault();
@@ -71,15 +75,15 @@
                 messageObj.commentId = Math.floor((Math.random() * 1000000) + 1);
                 messageObj.likes = 0;
                 messageObj.articleId =  window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
-                console.log(messageObj);
                 socket.emit('place comment', messageObj); // send value to server
                 commentInput.value = ''; // reset value to null
             });
             socket.on('place comment', function(msg) { // receive new comment from server
                 var listItem = document.createElement('li'); // create list element in comment list
                 var listButton = document.createElement('button');
+                console.log(msg);
                 if (msg.articleId == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1')) {
-                    config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<button class="likeButton" id="'+ msg.commentId +'">Like</button>'; // add comment to list
+                    config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<span class="likes" id="id' + msg.commentId + '">' + 'Likes: ' + msg.likes + '</span><p class="author">Written by: ' + localStorage.getItem('username') + '</p><button class="likeButton" id="' + msg.commentId +'">Like</button>'; // add comment to list
                     comments.likeComment();
                 }
             });
@@ -90,8 +94,6 @@
                 var articleFilter = sorted.filter(function(val) {
                     return val.articleId == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
                 });
-                console.log(sorted);
-                console.log(articleFilter);
                 config.elements.commentOne.innerText=articleFilter[0].comment;
                 if (articleFilter[1]) {
                     document.querySelector('#articleComment-two p').innerText=articleFilter[1].comment;
@@ -109,7 +111,6 @@
                 showComment(config.elements.commentThree, config.elements.paragraphThree);
             });
             function showComment(id, p) {
-                console.log(id.offsetHeight);
                 if (id.classList.contains("openComment")) {
                     id.classList.remove("openComment");
                     p.style.paddingTop = '1em';
@@ -122,14 +123,17 @@
         likeComment: function() {
             for (var i = 0; i < config.elements.likeButton.length; i++) {
                 if (!config.elements.likeButton[i].classList.contains('likeEvent')) {
-                    config.elements.likeButton[i].addEventListener('click', likeComment);
+                    config.elements.likeButton[i].addEventListener('click', likeClick);
                     config.elements.likeButton[i].classList.add("likeEvent");
                 }
             }
-            function likeComment() {
-                console.log('clicked like button ' + this.id);
+            function likeClick() {
                 socket.emit('like comment', this.id);
             }
+            socket.on('update likes', function(id, likes) {
+                console.log(id + ' ' + likes);
+                document.getElementById('id' + id).innerText = 'Likes: ' + likes;
+            });
         }
     };
 

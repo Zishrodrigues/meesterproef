@@ -7,7 +7,7 @@ var io = require('socket.io')(http);
 
 var url = process.env.APIURL;
 
-var commentsArray = [{comment:'This is a comment', commentId:'7777777', likes:0, articleId:'1'},{comment:'This is a comment2', commentId:'55555', likes:0, articleId:'2'}];
+var commentsArray = [{comment:'This is a comment', commentId:'7777777', likes:1, articleId:'1'},{comment:'This is a comment2', commentId:'55555', likes:1, articleId:'2'}];
 var articleData = require('./articles.json');
 // var articleData = JSON.parse('./articles.json');
 
@@ -40,6 +40,13 @@ app.get('/:id', function(req, res) {
 io.on('connection', function(socket){
     console.log('Hey there!');
 
+    socket.on('insert comments', function(){
+        socket.emit('place articleComment', commentsArray);
+        commentsArray.forEach(function(comment){
+            socket.emit('place comment', comment);
+        });
+    });
+
     socket.on('place comment', function(comment){
         commentsArray.push(comment);
         io.emit('place articleComment', commentsArray);
@@ -52,9 +59,11 @@ io.on('connection', function(socket){
                 console.log('found ' + commentsArray[i].commentId);
                 commentsArray[i].likes++;
                 console.log('new likes = ' + commentsArray[i].likes);
+                io.emit('update likes', id, commentsArray[i].likes);
             }
         }
         io.emit('place articleComment', commentsArray);
+        io.emit('test');
     });
 
     socket.on('disconnect', function(){
