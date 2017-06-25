@@ -13,13 +13,16 @@
             commentForm: document.getElementById('commentForm'),
             commentInput: document.getElementById('commentInput'),
             likeButton: document.getElementsByClassName('likeButton'),
+            headerName: document.getElementById('headerName'),
             commentOne: document.getElementById('articleComment-one'),
             commentTwo: document.getElementById('articleComment-two'),
             commentThree: document.getElementById('articleComment-three'),
+            iconOne: document.getElementById('iconOne'),
             iconTwo: document.getElementById('iconTwo'),
             iconThree: document.getElementById('iconThree'),
             paragraphTwo: document.getElementById('paragraphTwo'),
-            paragraphThree: document.getElementById('paragraphThree')
+            paragraphThree: document.getElementById('paragraphThree'),
+            paragraphFour: document.getElementById('paragraphFour')
         }
     };
 
@@ -28,9 +31,9 @@
             console.log('app started :)');
             username.checkUsername();
             listDates.setDay();
-            comments.placeComment();
-            comments.tab();
-            comments.initial();
+            if(window.location.pathname != '/') { // page location check
+                comments.initial();
+            }
         }
     };
 
@@ -64,8 +67,11 @@
 
     var comments = {
         initial: function() {
+            comments.placeComment();
+            comments.tab();
             config.elements.commentsList.innerHTML = '';
             socket.emit('insert comments');
+
         },
         placeComment: function(){
             config.elements.commentForm.addEventListener('submit', function(e){  // submit the comment form
@@ -75,7 +81,8 @@
                 messageObj.commentId = Math.floor((Math.random() * 1000000) + 1);
                 messageObj.likes = 0;
                 messageObj.user = localStorage.getItem('username');
-                messageObj.articleId =  window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
+                messageObj.articleId = window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
+                messageObj.date = comments.date();
                 socket.emit('place comment', messageObj); // send value to server
                 commentInput.value = ''; // reset value to null
             });
@@ -95,21 +102,36 @@
                 var articleFilter = sorted.filter(function(val) {
                     return val.articleId == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
                 });
-                config.elements.commentOne.innerText=articleFilter[0].comment;
+                tabContent('articleComment-one', 0);
                 if (articleFilter[1]) {
-                    document.querySelector('#articleComment-two p').innerText=articleFilter[1].comment;
-                    // config.elements.commentTwo.innerText=articleFilter[1].comment;
+                    tabContent('articleComment-two', 1);
                 } if (articleFilter[2]) {
-                    document.querySelector('#articleComment-three p').innerText=articleFilter[2].comment;
+                    tabContent('articleComment-three', 2);
+                }
+                function tabContent(id, arr) {
+                    document.getElementById(id).classList.remove('hide');
+                    document.querySelector('#' + id + ' p').innerText=articleFilter[arr].comment;
+                    document.querySelector('#' + id + ' span').innerText=articleFilter[arr].user + ' | ' + articleFilter[arr].date;
                 }
             });
         },
+        date: function() {
+            var today = new Date();
+            var day = today.getDate();
+            var month = today.getMonth()+1; //January is 0!
+            var year = today.getFullYear();
+            today = day + '/' + month + '/' + year;
+            return today;
+        },
         tab: function() {
+            config.elements.iconOne.addEventListener('click', function() {
+                showComment(config.elements.commentOne, config.elements.paragraphTwo);
+            });
             config.elements.iconTwo.addEventListener('click', function() {
-                showComment(config.elements.commentTwo, config.elements.paragraphTwo);
+                showComment(config.elements.commentTwo, config.elements.paragraphThree);
             });
             config.elements.iconThree.addEventListener('click', function() {
-                showComment(config.elements.commentThree, config.elements.paragraphThree);
+                showComment(config.elements.commentThree, config.elements.paragraphFour);
             });
             function showComment(id, p) {
                 if (id.classList.contains("openComment")) {

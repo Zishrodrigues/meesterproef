@@ -183,7 +183,7 @@ body {
     width: auto;
 }
 
-.detailImageWrapper .headerComment {
+.detailImageWrapper .headerQuote {
     position: absolute;
     top: 3em;
     left: 0;
@@ -251,6 +251,13 @@ body {
 .detailContent .textComment p {
     margin:0;
     padding:0;
+}
+
+.detailContent .textComment span {
+    display: block;
+    margin:0;
+    padding-top: 0.5em;
+    font-size: 0.8em;
 }
 
 .detailContent .textComment.openComment {

@@ -1,11 +1,12 @@
 <div class="detailImageWrapper">
     <img src="<%= articles.urlToImage %>" alt="<%= articles.title %>">
-    <p class="headerComment" id="articleComment-one">
-        This is a comment about the article. I am of the opinion that this article is wrong! I don't agree with what has
-        been said here whatsoever.
-    </p>
+    <section class="topComment">
+        <p class="headerQuote">
+            <%= articles.quote %>
+        </p>
+    </section>
     <p>
-        Maandag 12 juni
+        <%= articles.date %>
     </p>
     <h1>
         <%= articles.title %>
@@ -13,24 +14,36 @@
 </div>
 <div class="detailContent">
     <p>
-        Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.
+        <%= articles.text1 %>
     </p>
-    <section id="articleComment-two" class="textComment">
+    <section id="articleComment-one" class="textComment hide">
+        <div role="button" class="commentIcon" id="iconOne"></div>
+        <p>
+            Dit is een comment. Ik schrijf hier mijn mening over het artikel of onderwerp. Als mensen mijn comment lezen krijgen ze een idee over wat ik vind.
+        </p>
+        <span>John Doe | 10-06-2017</span>
+    </section>
+    <p id="paragraphTwo">
+        <%= articles.text2 %>
+    </p>
+    <section id="articleComment-two" class="textComment hide">
         <div role="button" class="commentIcon" id="iconTwo"></div>
         <p>
             Dit is een comment. Ik schrijf hier mijn mening over het artikel of onderwerp. Als mensen mijn comment lezen krijgen ze een idee over wat ik vind.
         </p>
+        <span>John Doe | 10-06-2017</span>
     </section>
-    <p id="paragraphTwo">
-        Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.
+    <p id="paragraphThree">
+        <%= articles.text3 %>
     </p>
-    <section id="articleComment-three" class="textComment">
+    <section id="articleComment-three" class="textComment hide">
         <div role="button" class="commentIcon" id="iconThree"></div>
         <p>
             Dit is een comment. Ik schrijf hier mijn mening over het artikel of onderwerp. Als mensen mijn comment lezen krijgen ze een idee over wat ik vind.
         </p>
+        <span>John Doe | 10-06-2017</span>
     </section>
-    <p id="paragraphThree">
-        Dit is een faketekst. Alles wat hier staat is slechts om een indruk te geven van het grafische effect van tekst op deze plek. Wat u hier leest is een voorbeeldtekst. Deze wordt later vervangen door de uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen ze toch door.
+    <p id="paragraphFour">
+        <%= articles.text4 %>
     </p>
 </div>
