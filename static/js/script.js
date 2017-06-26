@@ -76,14 +76,14 @@
         place: function(){
             config.elements.commentForm.addEventListener('submit', function(e){  // submit the comment form
                 e.preventDefault();
-                var messageObj = {};
-                messageObj.comment = commentInput.value;
-                messageObj.commentId = Math.floor((Math.random() * 1000000) + 1);
-                messageObj.likes = 0;
-                messageObj.user = localStorage.getItem('username');
-                messageObj.articleId = window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
-                messageObj.date = comments.date();
-                socket.emit('place comment', messageObj); // send value to server
+                var message = {};
+                message.comment = commentInput.value;
+                message.commentId = Math.floor((Math.random() * 1000000) + 1);
+                message.likes = 0;
+                message.user = localStorage.getItem('username');
+                message.articleId = window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
+                message.date = comments.date();
+                socket.emit('place comment', message); // send value to server
                 commentInput.value = ''; // reset value to null
             });
             socket.on('place comment', function(msg) { // receive new comment from server
