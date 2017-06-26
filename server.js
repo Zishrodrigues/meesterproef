@@ -23,14 +23,12 @@ app.get('/', function (req, res) {
 
 app.get('/:id', function(req, res) {
     var id = req.params.id;
-    console.log(id);
     var filtered = articleData.articles.filter(function ( val ) {
         return val.id === id;
     })[0];
     var filteredComments = commentsArray.filter(function ( val ) {
         return val.articleId === id;
     })[0];
-    console.log(filteredComments);
     res.render('pages/detail', { articles: filtered, comments:filteredComments });
 });
 
@@ -38,29 +36,30 @@ io.on('connection', function(socket){
     console.log('Hey there!');
 
     socket.on('insert comments', function(){
-        socket.emit('place articleComment', commentsArray);
         commentsArray.forEach(function(comment){
             socket.emit('place comment', comment);
         });
+        socket.emit('place articleComment', commentsArray);
     });
 
     socket.on('place comment', function(comment){
         commentsArray.push(comment);
-        io.emit('place articleComment', commentsArray);
         io.emit('place comment', comment);
+        io.emit('place articleComment', commentsArray, comment.commentId);
     });
 
-    socket.on('like comment', function(id){
-        for (var i=0; i < commentsArray.length; i++) {
-            if (commentsArray[i].commentId == id) {
-                console.log('found ' + commentsArray[i].commentId);
-                commentsArray[i].likes++;
-                console.log('new likes = ' + commentsArray[i].likes);
-                io.emit('update likes', id, commentsArray[i].likes);
+    socket.on('like comment', function(id, article){
+        function likes(id) {
+            for (var i=0; i < commentsArray.length; i++) {
+                if (commentsArray[i].commentId == id) {
+                    commentsArray[i].likes++;
+                    console.log('new likes = ' + commentsArray[i].likes);
+                    return commentsArray[i];
+                }
             }
         }
-        io.emit('place articleComment', commentsArray);
-        io.emit('test');
+        io.emit('update likes', id, likes(id), article);
+        io.emit('place articleComment', commentsArray, id);
     });
 
     socket.on('disconnect', function(){

@@ -330,7 +330,6 @@ body {
     position: relative;
     padding: 1em 2em;
     font-size: 0.9em;
-    overflow: hidden;
 }
 
 .commentsList li .likes {
@@ -353,11 +352,11 @@ body {
     cursor: pointer;
     font-weight: bold;
     border: none;
-    padding: 2em;
-    border-radius: 2em;
+    padding: 1em;
     position: absolute;
-    right: -1em;
-    bottom: -1em;
+    right: 0;
+    bottom: 0;
+    z-index: 907;
 }
 
 .commentsForm {
@@ -464,6 +463,43 @@ body {
 }
 
 /* GENERAL */
+
+.floatIcon {
+    position: absolute;
+    right: 1em;
+    bottom: 0;
+    width: 2.5em;
+    height: 2.5em;
+    opacity: 1;
+    background-image: url("../images/float-icon.png");
+    background-size: contain;
+    background-position: center;
+    z-index: 905;
+}
+
+.iconFly{
+    z-index: 9999;
+    animation: fly 3s linear;
+}
+
+@keyframes fly {
+  0% {
+    right: 1em;
+    opacity: 1;
+  }
+  30% {
+    right: 3em;
+    opacity: 1;
+  }
+  80% {
+      opacity: 0.4;
+  }
+  100% {
+    right:1em;
+    bottom: 100vh;
+    opacity: 0;
+  }
+}
 
 .hide {
     display: none;

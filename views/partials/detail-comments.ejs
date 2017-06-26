@@ -2,7 +2,10 @@
     Comments
 </h2>
 <ul id="comments" class="commentsList">
-    <li><%= comments.comment %></li>
+    <li>
+        <%= comments.comment %>
+        <div class="iconFloat" id="icon<%= comments.commentId %>"></div>
+    </li>
 </ul>
 <form action="" id="commentForm" class="commentsForm">
     <input type="text" id="commentInput" autocomplete="off" maxlength="430" placeholder="max char. 430" />

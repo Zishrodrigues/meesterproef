@@ -28,7 +28,6 @@
 
     var app = {
         init: function() { // Initializing the app and calling methods needed on startup
-            console.log('app started :)');
             username.check();
             listDates.setDay();
             if(window.location.pathname != '/') { // page location check
@@ -71,7 +70,6 @@
             comments.tab();
             config.elements.commentsList.innerHTML = '';
             socket.emit('insert comments');
-
         },
         place: function(){
             config.elements.commentForm.addEventListener('submit', function(e){  // submit the comment form
@@ -90,28 +88,42 @@
                 var listItem = document.createElement('li'); // create list element in comment list
                 var listButton = document.createElement('button');
                 if (msg.articleId == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1')) {
-                    config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<span class="likes" id="id' + msg.commentId + '">' + 'Likes: ' + msg.likes + '</span><p class="author">Written by: ' + msg.user + '</p><button class="likeButton" id="' + msg.commentId +'">Like</button>'; // add comment to list
+                    listItem.setAttribute("id", msg.commentId);
+                    config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<span class="likes" id="id' + msg.commentId + '">' + 'Likes: ' + msg.likes + '</span><p class="author">Written by: ' + msg.user + '</p><button class="likeButton" id="' + msg.commentId +'">Like</button><div class="floatIcon" id="icon' + msg.commentId + '"></div>'; // add comment to list
                     comments.like();
                 }
             });
-            socket.on('place articleComment', function(comments) { // receive commentArray from server
+            socket.on('place articleComment', function(comments, clicked) { // receive commentArray from server
                 var sorted = comments.sort(function(a, b) {
                     return parseFloat(b.likes) - parseFloat(a.likes);
                 });
                 var articleFilter = sorted.filter(function(val) {
                     return val.articleId == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
                 });
+                iconFloat('articleComment-one', 0);
                 tabContent('articleComment-one', 0);
                 if (articleFilter[1]) {
+                    iconFloat('articleComment-two', 1);
                     tabContent('articleComment-two', 1);
                 } if (articleFilter[2]) {
+                    iconFloat('articleComment-three', 2);
                     tabContent('articleComment-three', 2);
+                }
+                function iconFloat(id, arr){
+                    if (clicked) {
+                        if (document.querySelector('#' + id + ' p').innerText != articleFilter[arr].comment) {
+                            var icon = document.getElementById('icon' + clicked);
+                            icon.classList.add('iconFly');
+                            setTimeout(function(){
+                                icon.classList.remove('iconFly');
+                            }, 3000);
+                        }
+                    }
                 }
                 function tabContent(id, arr) {
                     document.getElementById(id).classList.remove('hide');
                     document.querySelector('#' + id + ' p').innerText=articleFilter[arr].comment;
                     document.querySelector('#' + id + ' span').innerText=articleFilter[arr].user + ' | ' + articleFilter[arr].date;
-
                 }
             });
         },
@@ -151,11 +163,12 @@
                 }
             }
             function likeClick() {
-                socket.emit('like comment', this.id);
+                socket.emit('like comment', this.id, window.location.pathname.replace(/^\/([^\/]*).*$/, '$1'));
             }
-            socket.on('update likes', function(id, likes) {
-                console.log(id + ' ' + likes);
-                document.getElementById('id' + id).innerText = 'Likes: ' + likes;
+            socket.on('update likes', function(id, arr, article) {
+                if (article == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1')) {
+                    document.getElementById('id' + id).innerText = 'Likes: ' + arr.likes;
+                }
             });
         }
     };
