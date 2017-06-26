@@ -29,7 +29,7 @@
     var app = {
         init: function() { // Initializing the app and calling methods needed on startup
             console.log('app started :)');
-            username.checkUsername();
+            username.check();
             listDates.setDay();
             if(window.location.pathname != '/') { // page location check
                 comments.initial();
@@ -38,12 +38,12 @@
     };
 
     var username = {
-        checkUsername: function() {
+        check: function() {
             if(!localStorage.getItem('username')) {
-                username.enterUsername();
+                username.enter();
             }
         },
-        enterUsername: function() {
+        enter: function() {
             config.elements.overlay.classList.remove("hide");
             config.elements.userForm.addEventListener("submit", function(e){
                 e.preventDefault();
@@ -67,13 +67,13 @@
 
     var comments = {
         initial: function() {
-            comments.placeComment();
+            comments.place();
             comments.tab();
             config.elements.commentsList.innerHTML = '';
             socket.emit('insert comments');
 
         },
-        placeComment: function(){
+        place: function(){
             config.elements.commentForm.addEventListener('submit', function(e){  // submit the comment form
                 e.preventDefault();
                 var messageObj = {};
@@ -91,7 +91,7 @@
                 var listButton = document.createElement('button');
                 if (msg.articleId == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1')) {
                     config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<span class="likes" id="id' + msg.commentId + '">' + 'Likes: ' + msg.likes + '</span><p class="author">Written by: ' + msg.user + '</p><button class="likeButton" id="' + msg.commentId +'">Like</button>'; // add comment to list
-                    comments.likeComment();
+                    comments.like();
                 }
             });
             socket.on('place articleComment', function(comments) { // receive commentArray from server
@@ -143,7 +143,7 @@
                 }
             }
         },
-        likeComment: function() {
+        like: function() {
             for (var i = 0; i < config.elements.likeButton.length; i++) {
                 if (!config.elements.likeButton[i].classList.contains('likeEvent')) {
                     config.elements.likeButton[i].addEventListener('click', likeClick);
