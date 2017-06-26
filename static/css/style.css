@@ -16,6 +16,7 @@ body {
     font-family: sans-serif;
     color: var(--main-text-color);
     overflow-x: hidden;
+    background-image: url("../images/main-bg.png");
 }
 
 /* TOP BAR */
@@ -142,6 +143,14 @@ body {
 .articleList li a .thumbnailWrapper img {
     width: auto;
     height: 100%;
+}
+
+
+@media screen and (min-width: 47em) {
+    .articleList li a .thumbnailWrapper img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .articleList li h1 {
