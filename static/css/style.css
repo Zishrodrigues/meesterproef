@@ -470,7 +470,7 @@ body {
     bottom: 0;
     width: 2.5em;
     height: 2.5em;
-    opacity: 1;
+    opacity: 0;
     background-image: url("../images/float-icon.png");
     background-size: contain;
     background-position: center;
@@ -485,6 +485,9 @@ body {
 @keyframes fly {
   0% {
     right: 1em;
+    opacity: 0;
+  }
+  1% {
     opacity: 1;
   }
   30% {
