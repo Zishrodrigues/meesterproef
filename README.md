@@ -1,6 +1,6 @@
 # Persgroep articles web app (Meesterproef)
 
-Zishan K. Pasha | V 0.3.5 | [Live link(progress)](https://meesterproef-wufxqbwopt.now.sh)
+Zishan K. Pasha | V 0.3.5 | [Live link(progress)](https://meesterproef-vzujpzsxnk.now.sh)
 
 ![persgroep-logo](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/pg-logo.png)
 
