@@ -71,27 +71,7 @@ Details to be announced. Making sure nothing is broken and presentation.
 
 I'm focusing on the reader portion of the concept. Which implies that I'll be developing a user interface for the users of the app that want to read and comment on articles.
 
-### Must haves
-
-- [x] Browse articles using a clear interface (overview of articles)
-- [x] Comment on articles
-- [x] Article page with comments (Way to read the entire article)
-- [x] Good interface
-
-### Should haves
-
-- [x] Real time feedback when other readers comment on articles
-- [x] Username
-- [ ] Search for articles
-- [ ] Tags for articles
-
-### Could haves
-
-- [ ] Moodboard for browsing
-
-### Would haves
-
-- [ ] Mongo database connection
+Check the issues section of this repo for details on the must, should, could and would have features of the project.
 
 ## Installation
 ### Installing locally
