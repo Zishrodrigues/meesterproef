@@ -60,7 +60,7 @@
             var dayName = listDates.dayNames[date.getDay()]; // get day number and match to dayNames array. (0 = sunday etc)
             if(window.location.pathname == '/') { // page location check
                 config.elements.todayHeader.textContent = dayName; // Add day name to list
-                config.elements.dayOne.textContent = listDates.dayNames[date.getDay() - 1];
+                // config.elements.dayOne.textContent = listDates.dayNames[date.getDay() - 1];
             }
         }
     };
