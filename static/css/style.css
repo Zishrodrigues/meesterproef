@@ -89,12 +89,12 @@ body {
 .articleList:first-of-type li:first-of-type a .thumbnailWrapper:before {
     content: '';
     position: absolute;
-	top: 0;
-	right: 0;
+    top: 0;
+    right: 0;
     bottom: 0;
-	left: 0;
-	background: linear-gradient(to top,#000000 50%,transparent);
-	opacity: .6;
+    left: 0;
+    background: linear-gradient(to top,#000000 50%,transparent);
+    opacity: .6;
     z-index: 100;
 }
 
@@ -167,13 +167,13 @@ body {
 
 .detailImageWrapper:before {
     content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: linear-gradient(to top,#000000 50%,transparent);
-	opacity: .6;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top,#000000 50%,transparent);
+    opacity: .6;
     z-index: 100;
 }
 
