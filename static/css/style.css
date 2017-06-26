@@ -153,6 +153,27 @@ body {
     float: left;
 }
 
+.articleList li h2 {
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    color: var(--main-bg-color);
+    width: 70%;
+    font-size: 1em;
+    float: left;
+    color: #ff6161;
+}
+
+.articleList li p {
+    display: inline-block;
+    padding: 0 0.5em;
+    color: var(--main-bg-color);
+    width: 70%;
+    font-size: 0.9em;
+    float: left;
+    color: #ff6161;
+    font-weight: bold;
+}
+
 /* DETAILPAGE */
 .articleDetail {
     max-width: 50em;
@@ -225,7 +246,7 @@ body {
 
 .detailContent p {
     padding-top: 1em;
-    transition: 1s;
+    transition: 0.5s;
 }
 
 .detailContent .textComment {
@@ -233,7 +254,7 @@ body {
     color: #ffffff;
     padding: 1em;
     margin-bottom: 1em;
-    transition: 1s;
+    transition: 0.5s;
     position: absolute;
     width: 70%;
     right: -70%;
@@ -300,6 +321,7 @@ body {
     position: relative;
     padding: 1em 2em;
     font-size: 0.9em;
+    overflow: hidden;
 }
 
 .commentsList li .likes {
@@ -320,11 +342,13 @@ body {
     background-color: #ffffff;
     color: #ff6161;
     cursor: pointer;
+    font-weight: bold;
     border: none;
-    padding: 0.5em;
+    padding: 2em;
+    border-radius: 2em;
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: -1em;
+    bottom: -1em;
 }
 
 .commentsForm {
