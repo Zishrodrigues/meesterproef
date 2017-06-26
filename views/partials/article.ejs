@@ -10,10 +10,30 @@
                 </h1>
             </a>
         </li>
+        <li>
+            <a href="/<%= article.id %>">
+                <div class="thumbnailWrapper">
+                    <img src="<%= article.urlToImage %>" alt="<%= article.title %>">
+                </div>
+                <h1>
+                    <%= article.title %>
+                </h1>
+            </a>
+        </li>
+        <li>
+            <a href="/<%= article.id %>">
+                <div class="thumbnailWrapper">
+                    <img src="<%= article.urlToImage %>" alt="<%= article.title %>">
+                </div>
+                <h1>
+                    <%= article.title %>
+                </h1>
+            </a>
+        </li>
     <% }); %>
 </ul>
 
-<ul class="articleList">
+<!-- <ul class="articleList">
     <li>
         <h1 id="dayOne">
 
@@ -31,7 +51,7 @@
             </a>
         </li>
     <% }); %>
-</ul>
+</ul> -->
 
 <% articles.articles.forEach(function(article) { %>
     <% if (article.title.match("Trump")) { %>

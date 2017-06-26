@@ -89,7 +89,6 @@
             socket.on('place comment', function(msg) { // receive new comment from server
                 var listItem = document.createElement('li'); // create list element in comment list
                 var listButton = document.createElement('button');
-                console.log(msg);
                 if (msg.articleId == window.location.pathname.replace(/^\/([^\/]*).*$/, '$1')) {
                     config.elements.commentsList.appendChild(listItem).innerHTML=msg.comment + '<span class="likes" id="id' + msg.commentId + '">' + 'Likes: ' + msg.likes + '</span><p class="author">Written by: ' + msg.user + '</p><button class="likeButton" id="' + msg.commentId +'">Like</button>'; // add comment to list
                     comments.likeComment();
@@ -112,6 +111,7 @@
                     document.getElementById(id).classList.remove('hide');
                     document.querySelector('#' + id + ' p').innerText=articleFilter[arr].comment;
                     document.querySelector('#' + id + ' span').innerText=articleFilter[arr].user + ' | ' + articleFilter[arr].date;
+
                 }
             });
         },
