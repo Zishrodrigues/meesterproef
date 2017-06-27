@@ -385,12 +385,12 @@ body {
     .detailComments form {
         position: relative;
         display: block;
-        height: 10%;
+        height: 5%;
         background-color: #ff6161;
     }
 
     .detailComments ul {
-        height: 80%;
+        height: 85%;
         display: block;
         overflow: auto;
     }
@@ -415,7 +415,7 @@ body {
 .detailComments.slide form {
     position: relative;
     display: block;
-    height: 10%;
+    height: 5%;
     background-color: #ff6161;
 }
 
@@ -424,7 +424,7 @@ body {
 }
 
 .detailComments.slide ul {
-    height: 80%;
+    height: 85%;
     display: block;
     overflow: auto;
 }
