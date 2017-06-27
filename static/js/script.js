@@ -22,7 +22,9 @@
             iconThree: document.getElementById('iconThree'),
             paragraphTwo: document.getElementById('paragraphTwo'),
             paragraphThree: document.getElementById('paragraphThree'),
-            paragraphFour: document.getElementById('paragraphFour')
+            articleSection: document.getElementById('articleSection'),
+            commentSection: document.getElementById('commentSection'),
+            showComments: document.getElementById('showSub')
         }
     };
 
@@ -32,6 +34,7 @@
             listDates.setDay();
             if(window.location.pathname != '/') { // page location check
                 comments.initial();
+                sidebar.enable();
             }
         }
     };
@@ -61,6 +64,28 @@
                 config.elements.todayHeader.textContent = dayName; // Add day name to list
                 // config.elements.dayOne.textContent = listDates.dayNames[date.getDay() - 1];
             }
+        }
+    };
+
+    var sidebar = {
+        enable: function() {
+            console.log('sidebar enabled');
+            config.elements.articleSection.classList.add('slideable');
+            config.elements.commentSection.classList.add('slide');
+            sidebar.openClose();
+        },
+        openClose: function() {
+            config.elements.showComments.addEventListener('click', function(){
+                // config.elements.commentSection.classList.add('opened');
+                // config.elements.articleSection.classList.add('slideLeft');
+                if (config.elements.commentSection.classList.contains('opened')) {
+                    config.elements.commentSection.classList.remove("opened");
+                    config.elements.articleSection.classList.remove('slideLeft');
+                } else {
+                    config.elements.commentSection.classList.add("opened");
+                    config.elements.articleSection.classList.add('slideLeft');
+                }
+            });
         }
     };
 

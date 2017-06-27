@@ -191,7 +191,13 @@ body {
     transition: 0.5s;
 }
 
-.articleDetail.slideRight {
+.articleDetail.slideable {
+    position: absolute;
+    left:0;
+}
+
+
+.articleDetail.slideLeft {
     position: absolute;
     left: -80%;
 }
@@ -340,6 +346,10 @@ body {
     right:-80%;
 }
 
+.detailComments.slide.opened {
+    right:0;
+}
+
 .commentsList {
     background-color: #ff6161;
     list-style-type: none;
@@ -485,7 +495,7 @@ body {
 
 /* COMMENTS SLIDER */
 .showComments {
-    position: fixed;
+    position: absolute;
     right: 0;
     z-index: 99999;
 }
