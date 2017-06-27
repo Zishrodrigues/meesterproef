@@ -185,7 +185,7 @@
             function showComment(id, p) {
                 if (id.classList.contains("openComment")) {
                     id.classList.remove("openComment");
-                    p.style.paddingTop = '1em';
+                    p.style.paddingTop = '0em';
                 } else {
                     id.classList.add("openComment");
                     p.style.paddingTop = id.offsetHeight + 20 + 'px';
