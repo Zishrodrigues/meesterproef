@@ -8,6 +8,7 @@ html {
     --main-bg-color: #2d2d2d;
     --main-text-color: #ffffff;
     --main-highlight-color: #b3b3b3;
+    height: 100%;
 }
 
 body {
@@ -17,6 +18,7 @@ body {
     color: var(--main-text-color);
     overflow-x: hidden;
     background-image: url("../images/main-bg.png");
+    height: 100%;
 }
 
 /* TOP BAR */
@@ -184,11 +186,24 @@ body {
 }
 
 /* DETAILPAGE */
+.mainWrapper{
+    margin: 0 auto;
+    /*max-width: 60em;*/
+    height: 100%;
+}
+
 .articleDetail {
-    max-width: 50em;
+    /*max-width: 50em;*/
     margin: 0 auto;
     width: 100%;
     transition: 0.5s;
+}
+
+@media screen and (min-width: 48em) {
+    .articleDetail {
+        float: left;
+        width: 60%;
+    }
 }
 
 .articleDetail.slideable {
@@ -225,6 +240,14 @@ body {
     top:0;
     height: 30em;
     width: auto;
+}
+
+@media screen and (min-width: 55em) {
+    .detailImageWrapper img {
+        height: auto;
+        min-height: 100%;
+        width: 100%;
+    }
 }
 
 .detailImageWrapper .headerQuote {
@@ -267,9 +290,17 @@ body {
     position: relative;
 }
 
+@media screen and (min-width: 48em) {
+    .detailContent {
+        border-right: none;
+    }
+}
+
 .detailContent p {
     padding-top: 1em;
     transition: 0.5s;
+    max-width: 30em;
+    margin: 0 auto;
 }
 
 .detailContent .textComment {
@@ -330,9 +361,39 @@ body {
 }
 
 .detailComments {
-    max-width: 50em;
+    /*max-width: 50em;*/
     margin: 0 auto;
     transition: 0.5s;
+    background-color: #ff6161;
+}
+
+@media screen and (min-width: 48em) {
+    .detailComments {
+        float: left;
+        width: 40%;
+        height: 100%;
+        right: 0;
+        position: fixed;
+    }
+
+    .detailComments h2 {
+        display: block;
+        padding: 1em;
+        height: 10%;
+    }
+
+    .detailComments form {
+        position: relative;
+        display: block;
+        height: 10%;
+        background-color: #ff6161;
+    }
+
+    .detailComments ul {
+        height: 80%;
+        display: block;
+        overflow: auto;
+    }
 }
 
 .detailComments.slide {

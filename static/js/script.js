@@ -71,7 +71,7 @@
 
     var sidebar = {
         enable: function() {
-            if (window.innerWidth < 810 && window.innerWidth > 300) {
+            if (window.innerWidth < 795 && window.innerWidth > 300) {
                 console.log('sidebar enabled');
                 config.elements.articleSection.classList.add('slideable');
                 config.elements.commentSection.classList.add('slide');
