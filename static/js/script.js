@@ -22,6 +22,7 @@
             iconThree: document.getElementById('iconThree'),
             paragraphTwo: document.getElementById('paragraphTwo'),
             paragraphThree: document.getElementById('paragraphThree'),
+            paragraphFour: document.getElementById('paragraphFour'),
             articleSection: document.getElementById('articleSection'),
             commentSection: document.getElementById('commentSection'),
             showComments: document.getElementById('showSub')
@@ -33,6 +34,7 @@
             username.check();
             listDates.setDay();
             if(window.location.pathname != '/') { // page location check
+                sidebar.openClose();
                 comments.initial();
                 sidebar.enable();
             }
@@ -69,12 +71,11 @@
 
     var sidebar = {
         enable: function() {
-            if (window.innerWidth < 810) {
+            if (window.innerWidth < 810 && window.innerWidth > 300) {
                 console.log('sidebar enabled');
                 config.elements.articleSection.classList.add('slideable');
                 config.elements.commentSection.classList.add('slide');
                 config.elements.showComments.classList.remove('hide');
-                sidebar.openClose();
             } else {
                 config.elements.articleSection.classList.remove('slideable');
                 config.elements.commentSection.classList.remove('slide');
@@ -88,11 +89,13 @@
                     config.elements.articleSection.classList.remove('slideLeft');
                     document.body.style.overflow = 'auto';
                     config.elements.showComments.innerText='Comments';
+                    console.log('1');
                 } else {
                     config.elements.commentSection.classList.add("opened");
                     config.elements.articleSection.classList.add('slideLeft');
                     document.body.style.overflow = 'hidden';
                     config.elements.showComments.innerText='>';
+                    console.log('2');
                 }
             });
         }
@@ -206,6 +209,7 @@
             });
         }
     };
+
     window.addEventListener('resize', function(){
         sidebar.enable();
     }, false);
