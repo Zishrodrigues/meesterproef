@@ -79,6 +79,9 @@
             } else {
                 config.elements.articleSection.classList.remove('slideable');
                 config.elements.commentSection.classList.remove('slide');
+                config.elements.commentSection.classList.remove("opened");
+                config.elements.showComments.innerText='Comments';
+                config.elements.articleSection.classList.remove('slideLeft');
                 config.elements.showComments.classList.add('hide');
             }
         },
