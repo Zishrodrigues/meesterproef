@@ -69,21 +69,30 @@
 
     var sidebar = {
         enable: function() {
-            console.log('sidebar enabled');
-            config.elements.articleSection.classList.add('slideable');
-            config.elements.commentSection.classList.add('slide');
-            sidebar.openClose();
+            if (window.innerWidth < 810) {
+                console.log('sidebar enabled');
+                config.elements.articleSection.classList.add('slideable');
+                config.elements.commentSection.classList.add('slide');
+                config.elements.showComments.classList.remove('hide');
+                sidebar.openClose();
+            } else {
+                config.elements.articleSection.classList.remove('slideable');
+                config.elements.commentSection.classList.remove('slide');
+                config.elements.showComments.classList.add('hide');
+            }
         },
         openClose: function() {
             config.elements.showComments.addEventListener('click', function(){
-                // config.elements.commentSection.classList.add('opened');
-                // config.elements.articleSection.classList.add('slideLeft');
                 if (config.elements.commentSection.classList.contains('opened')) {
                     config.elements.commentSection.classList.remove("opened");
                     config.elements.articleSection.classList.remove('slideLeft');
+                    document.body.style.overflow = 'auto';
+                    config.elements.showComments.innerText='Comments';
                 } else {
                     config.elements.commentSection.classList.add("opened");
                     config.elements.articleSection.classList.add('slideLeft');
+                    document.body.style.overflow = 'hidden';
+                    config.elements.showComments.innerText='>';
                 }
             });
         }
@@ -197,6 +206,8 @@
             });
         }
     };
-
+    window.addEventListener('resize', function(){
+        sidebar.enable();
+    }, false);
     app.init();
 })();

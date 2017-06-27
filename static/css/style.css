@@ -259,7 +259,7 @@ body {
 }
 
 .detailContent {
-    border-right: 1em #ff6161 solid;
+    border-right: 0.5em #ff6161 solid;
     background-color: #ffffff;
     color: var(--main-bg-color);
     padding: 1em 3em 1em 1em;
@@ -336,7 +336,6 @@ body {
 }
 
 .detailComments.slide {
-    border:1px red dashed;
     height: 100%;
     width: 80%;
     background-color: #ff6161;
@@ -344,6 +343,29 @@ body {
     z-index: 99999;
     top:0;
     right:-80%;
+}
+
+.detailComments.slide h2 {
+    display: block;
+    padding: 1em;
+    height: 10%;
+}
+
+.detailComments.slide form {
+    position: relative;
+    display: block;
+    height: 10%;
+    background-color: #ff6161;
+}
+
+.detailComments.slide form input[type="text"] {
+
+}
+
+.detailComments.slide ul {
+    height: 80%;
+    display: block;
+    overflow: auto;
 }
 
 .detailComments.slide.opened {
@@ -495,6 +517,11 @@ body {
 
 /* COMMENTS SLIDER */
 .showComments {
+    background-color: #ff6161;
+    border:none;
+    outline: none;
+    color: #ffffff;
+    padding: 1em;
     position: absolute;
     right: 0;
     z-index: 99999;
