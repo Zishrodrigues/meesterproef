@@ -187,6 +187,13 @@ body {
 .articleDetail {
     max-width: 50em;
     margin: 0 auto;
+    width: 100%;
+    transition: 0.5s;
+}
+
+.articleDetail.slideRight {
+    position: absolute;
+    left: -80%;
 }
 
 .detailImageWrapper {
@@ -246,9 +253,10 @@ body {
 }
 
 .detailContent {
+    border-right: 1em #ff6161 solid;
     background-color: #ffffff;
     color: var(--main-bg-color);
-    padding: 2em;
+    padding: 1em 3em 1em 1em;
     overflow: hidden;
     position: relative;
 }
@@ -318,6 +326,18 @@ body {
 .detailComments {
     max-width: 50em;
     margin: 0 auto;
+    transition: 0.5s;
+}
+
+.detailComments.slide {
+    border:1px red dashed;
+    height: 100%;
+    width: 80%;
+    background-color: #ff6161;
+    position: fixed;
+    z-index: 99999;
+    top:0;
+    right:-80%;
 }
 
 .commentsList {
@@ -330,6 +350,7 @@ body {
     position: relative;
     padding: 1em 2em;
     font-size: 0.9em;
+    word-break: break-all;
 }
 
 .commentsList li .likes {
@@ -460,6 +481,13 @@ body {
     opacity: 1;
     left:0;
   }
+}
+
+/* COMMENTS SLIDER */
+.showComments {
+    position: fixed;
+    right: 0;
+    z-index: 99999;
 }
 
 /* GENERAL */
