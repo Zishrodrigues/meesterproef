@@ -400,6 +400,7 @@ body {
 
     .detailComments ul {
         height: 85%;
+        max-height: none;
         display: block;
         overflow: auto;
     }
@@ -433,7 +434,7 @@ body {
 }
 
 .detailComments.slide ul {
-    height: 85%;
+    max-height: 85%;
     display: block;
     overflow: auto;
 }

@@ -32,7 +32,6 @@
     var app = {
         init: function() { // Initializing the app and calling methods needed on startup
             username.check();
-            listDates.setDay();
             if(window.location.pathname != '/') { // page location check
                 sidebar.openClose();
                 comments.initial();
@@ -213,8 +212,11 @@
         }
     };
 
-    window.addEventListener('resize', function(){
-        sidebar.enable();
-    }, false);
+    if(window.location.pathname != '/') { // page location check
+        window.addEventListener('resize', function(){
+            sidebar.enable();
+        }, false);
+    }
+
     app.init();
 })();
