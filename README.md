@@ -35,7 +35,7 @@ Recent trends have shown that a lot of younger people tend to read the comments 
 ![app-screenshot-3](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/screenshot3.jpg)
 
 #### Desktop version
-![app-desktop](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/desktop-jpg)
+![app-desktop](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/desktop.jpg)
 
 
 
