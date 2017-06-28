@@ -57,23 +57,10 @@
         }
     };
 
-    var listDates = {
-        dayNames: [  'Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'], // storing week names to match to day number
-        setDay: function() {
-            var date = new Date(); // get date
-            var dayName = listDates.dayNames[date.getDay()]; // get day number and match to dayNames array. (0 = sunday etc)
-            if(window.location.pathname == '/') { // page location check
-                config.elements.todayHeader.textContent = dayName; // Add day name to list
-                // config.elements.dayOne.textContent = listDates.dayNames[date.getDay() - 1];
-            }
-        }
-    };
-
     var sidebar = {
         enable: function() {
             if (window.innerWidth < 795 && window.innerWidth > 300) {
                 console.log('sidebar enabled');
-                sidebar.scrollButton();
                 config.elements.articleSection.classList.add('slideable');
                 config.elements.commentSection.classList.add('slide');
                 config.elements.showComments.classList.remove('hide');
@@ -84,6 +71,8 @@
                 config.elements.showComments.innerText='Comments';
                 config.elements.articleSection.classList.remove('slideLeft');
                 config.elements.showComments.classList.add('hide');
+                document.body.style.overflow = 'auto';
+
             }
         },
         openClose: function() {
@@ -106,23 +95,6 @@
                         console.log('2');
                     }
                 }
-        },
-        scrollButton: function() {
-            // var top = 480;
-            // var listener = function () {
-            //     var y = window.pageYOffset;
-            //
-            //     if (y >= top) {
-            //         config.elements.showComments.classList.add('fixedButton');
-            //         // config.elements.showCommentsFixed.classList.remove('hide');
-            //         console.log('fixed: D');
-            //     } else {
-            //         config.elements.showComments.classList.remove('fixedButton');
-            //         // config.elements.showCommentsFixed.classList.add('hide');
-            //         console.log('nixed: D');
-            //     }
-            // };
-            // window.addEventListener('scroll', listener, false);
         }
     };
 
@@ -130,6 +102,7 @@
         initial: function() {
             comments.place();
             comments.tab();
+            config.elements.commentForm.classList.remove('hide');
             config.elements.commentsList.innerHTML = '';
             socket.emit('insert comments');
             setTimeout(function(){
@@ -188,7 +161,7 @@
                 function tabContent(id, arr) {
                     document.getElementById(id).classList.remove('hide');
                     document.querySelector('#' + id + ' p').innerText=articleFilter[arr].comment;
-                    document.querySelector('#' + id + ' span').innerText=articleFilter[arr].user + ' | ' + articleFilter[arr].date;
+                    document.querySelector('#' + id + ' span').innerText=articleFilter[arr].user + ' | ' + articleFilter[arr].date + ' | Likes: ' + articleFilter[arr].likes;
                 }
             });
         },

@@ -39,7 +39,7 @@ body {
     border-bottom: 0.1em #ffffff solid;
 }
 
-.topBar .logo span {
+.logoSpan {
     animation: logo 1.3s infinite step-end;
 }
 
@@ -506,8 +506,15 @@ body {
 
 .detailComments.slide h2 {
     display: block;
-    padding: 1em;
+    font-size: 1.5em;
+    padding: 0.5em;
     height: 10%;
+}
+
+@media screen and (min-width: 49.688em) {
+    .detailComments h2 {
+        font-size: 2em;
+    }
 }
 
 .detailComments.slide form {
@@ -517,10 +524,6 @@ body {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     background-color: #ff6161;
-}
-
-.detailComments.slide form input[type="text"] {
-
 }
 
 .detailComments.slide ul {
@@ -777,5 +780,5 @@ body {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }

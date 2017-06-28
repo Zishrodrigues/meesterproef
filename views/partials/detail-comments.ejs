@@ -5,12 +5,17 @@
     Comments
 </h2>
 <ul id="comments" class="commentsList">
-    <li>
-        <%= comments.comment %>
-        <div class="iconFloat" id="icon<%= comments.commentId %>"></div>
-    </li>
+
+    <% for(var i=0; i<comments.length; i++) {%>
+        <li>
+            <%= comments[i].comment %>
+            <p>
+                <%= comments[i].user %> | <%= comments[i].date %>
+            </p>
+        </li>
+    <% } %>
 </ul>
-<form action="" id="commentForm" class="commentsForm">
+<form action="" id="commentForm" class="commentsForm hide">
     <input type="text" id="commentInput" autocomplete="off" maxlength="430" placeholder="max char. 430" />
     <!-- <input type="submit" value="send"> -->
     <button class="submitBut" type="submit">Send</button>
