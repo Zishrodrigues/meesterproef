@@ -109,6 +109,9 @@
             comments.tab();
             config.elements.commentsList.innerHTML = '';
             socket.emit('insert comments');
+            setTimeout(function(){
+                comments.show(config.elements.commentOne, config.elements.paragraphTwo);
+            }, 500);
         },
         place: function(){
             config.elements.commentForm.addEventListener('submit', function(e){  // submit the comment form
@@ -176,22 +179,22 @@
         },
         tab: function() {
             config.elements.iconOne.addEventListener('click', function() {
-                showComment(config.elements.commentOne, config.elements.paragraphTwo);
+                comments.show(config.elements.commentOne, config.elements.paragraphTwo);
             });
             config.elements.iconTwo.addEventListener('click', function() {
-                showComment(config.elements.commentTwo, config.elements.paragraphThree);
+                comments.show(config.elements.commentTwo, config.elements.paragraphThree);
             });
             config.elements.iconThree.addEventListener('click', function() {
-                showComment(config.elements.commentThree, config.elements.paragraphFour);
+                comments.show(config.elements.commentThree, config.elements.paragraphFour);
             });
-            function showComment(id, p) {
-                if (id.classList.contains("openComment")) {
-                    id.classList.remove("openComment");
-                    p.style.paddingTop = '0em';
-                } else {
-                    id.classList.add("openComment");
-                    p.style.paddingTop = id.offsetHeight + 20 + 'px';
-                }
+        },
+        show: function(id, p) {
+            if (id.classList.contains("openComment")) {
+                id.classList.remove("openComment");
+                p.style.paddingTop = '0em';
+            } else {
+                id.classList.add("openComment");
+                p.style.paddingTop = id.offsetHeight + 20 + 'px';
             }
         },
         like: function() {

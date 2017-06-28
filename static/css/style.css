@@ -35,6 +35,8 @@ body {
 
 .topBar h1 {
     font-size: 1.5em;
+    display: inline-block;
+    border-bottom: 0.1em #ffffff solid;
 }
 
 .topBar .logo span {
@@ -85,20 +87,20 @@ body {
     border-right: 0.2em #ff6161 solid;
 }
 
-.articleList:first-of-type li:first-of-type {
+.articleList li:first-of-type {
     height: 50vh;
     padding:0;
     position: relative;
     border-right: none;
 }
 
-.articleList:first-of-type li:first-of-type a .thumbnailWrapper {
+.articleList li:first-of-type a .thumbnailWrapper {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.articleList:first-of-type li:first-of-type a .thumbnailWrapper:before {
+.articleList li:first-of-type a .thumbnailWrapper:before {
     content: '';
     position: absolute;
     top: 0;
@@ -110,17 +112,42 @@ body {
     z-index: 100;
 }
 
-.articleList:first-of-type li:first-of-type h1 {
+.articleList li:first-of-type h1 {
     position: absolute;
     color: #ffffff;
     font-size: 2em;
     width: 100%;
-    bottom: 0;
+    top: 0.5em;
     z-index:101;
     padding-bottom: 1em;
 }
 
-.articleList li:first-of-type {
+.articleList li:first-of-type .articleIntro {
+    position: absolute;
+    color: #ffffff;
+    font-size: 1.1em;
+    width: 100%;
+    padding: 0 1em 0 1em;
+    margin:0 auto;
+    bottom: 0;
+    left: 0;
+    right:0;
+    z-index:101;
+    padding-bottom: 1em;
+}
+
+.articleList li:first-of-type .articleIntro .readMore {
+    font-size: 0.8em;
+}
+
+@media screen and (min-width: 47em) {
+    .articleList li:first-of-type .articleIntro {
+        font-size: 1.5em;
+        bottom: 1em;
+    }
+}
+
+/*.articleList li:first-of-type {
     background-color: #ff6161;
     border:none;
     position: sticky;
@@ -133,7 +160,7 @@ body {
 
 .articleList li:first-of-type h1 {
     font-size: 1.5em;
-}
+}*/
 
 .articleList li {
     position: relative;
@@ -175,10 +202,10 @@ body {
 
 .articleList li h2 {
     display: inline-block;
-    padding: 0.2em 0.5em;
+    padding: 0 0.5em;
     color: var(--main-bg-color);
     width: 70%;
-    font-size: 1em;
+    font-size: 0.9em;
     float: left;
     color: #ff6161;
 }
@@ -192,6 +219,33 @@ body {
     float: left;
     color: #ff6161;
     font-weight: bold;
+}
+
+.articleList li .articleIntro {
+    color:var(--main-bg-color);
+    width: 100%;
+    display: block;
+    padding: 0.5em 0;
+    max-width: 40em;
+    font-weight: normal;
+}
+
+.articleList li .articleIntro .readMore{
+    color: #ff6161;
+    font-weight: bold;
+}
+
+.articleList li .articleTag {
+    position: absolute;
+    top:0;
+    right: 0;
+    width: auto;
+    color: #ffffff;
+    background-color: #ff6161;
+    display: inline-block;
+    padding: 0.3em;
+    font-size: 0.7em;
+    font-weight: normal;
 }
 
 /* DETAILPAGE */
@@ -259,15 +313,16 @@ body {
     }
 }
 
-.detailImageWrapper .headerQuote {
+.detailImageWrapper .headerTitle {
+    text-align: center;
     position: absolute;
-    top: 3em;
+    top: 2em;
     left: 0;
     right: 0;
     margin: 0 auto;
     max-width: 80%;
     z-index: 102;
-    font-size: 1rem;
+    font-size: 3rem;
     background: none;
 }
 
@@ -279,14 +334,6 @@ body {
     padding: 0.5em;
     font-weight: bold;
     background-color: #ff6161;
-    max-width: 85%;
-}
-
-.detailImageWrapper h1 {
-    position: absolute;
-    bottom: 1em;
-    left: 1.5em;
-    z-index: 102;
     max-width: 85%;
 }
 
@@ -303,6 +350,13 @@ body {
     .detailContent {
         border-right: none;
     }
+}
+
+.detailContent .articleQuote {
+    color: #ff6161;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.2em;
 }
 
 .detailContent p {
@@ -592,8 +646,10 @@ body {
     border:none;
     outline: none;
     color: #ffffff;
-    padding: 1em;
+    font-size: 0.5em;
+    padding: 2em 1em;
     position: absolute;
+    top: 0;
     right: 0;
     z-index: 99999;
 }
