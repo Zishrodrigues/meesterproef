@@ -1,5 +1,6 @@
 <section class="detailImageWrapper">
     <img src="<%= articles.urlToImage %>" alt="<%= articles.title %>">
+    <a class="backLink" href="/">< Back to overview</a>
     <section class="topComment">
         <h1 class="headerTitle">
             <%= articles.title %>
@@ -10,9 +11,9 @@
     </p>
 </section>
 <article class="detailContent">
-    <button class="showComments hide" id="showSub">
+    <!-- <button class="showComments hide" id="showSub">
         Comments
-    </button>
+    </button> -->
     <p class="articleQuote">
         "<%= articles.quote %>"
     </p>
@@ -47,3 +48,4 @@
         <%= articles.text4 %>
     </p>
 </article>
+<a class="backLink bottomLink" href="/">< Back to overview</a>

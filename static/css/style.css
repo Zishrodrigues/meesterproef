@@ -165,10 +165,16 @@ body {
 .articleList li {
     position: relative;
     padding: 1em;
-    min-height: 8em;
+    min-height: 13em;
     border-bottom: 0.1em var(--main-bg-color) solid;
     background-color: #ffffff;
     border-right: 0.2em #ff6161 solid;
+}
+
+@media screen and (min-width: 40em) {
+    .articleList li {
+        min-height: 1em;
+    }
 }
 
 .articleList li a .thumbnailWrapper {
@@ -479,7 +485,9 @@ body {
 .detailComments.slide form {
     position: relative;
     display: block;
-    height: 5%;
+    height: 10%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     background-color: #ff6161;
 }
 
@@ -488,7 +496,7 @@ body {
 }
 
 .detailComments.slide ul {
-    max-height: 85%;
+    max-height: 80%;
     display: block;
     overflow: auto;
 }
@@ -552,6 +560,7 @@ body {
     border: 0.1em #ff6161 solid;
 }
 
+.commentsForm .submitBut,
 .commentsForm input[type="submit"] {
     appearance: none;
     background-color: #ffffff;
@@ -564,6 +573,8 @@ body {
     cursor: pointer;
 }
 
+.commentsForm .submitBut:hover,
+.commentsForm .submitBut:focus,
 .commentsForm input[type="submit"]:hover,
 .commentsForm input[type="submit"]:focus {
     background-color: #ff6161;
@@ -607,6 +618,7 @@ body {
     font-size: 1rem;
 }
 
+.userForm .submitBut,
 .userForm input[type="submit"] {
     appearance: none;
     background-color: #ffffff;
@@ -616,6 +628,8 @@ body {
     cursor: pointer;
 }
 
+.userForm .submitBut:focus,
+.userForm .submitBut:hover,
 .userForm input[type="submit"]:hover,
 .userForm input[type="submit"]:focus
  {
@@ -650,8 +664,20 @@ body {
     padding: 2em 1em;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -1em;
     z-index: 99999;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.showComments.fixedButton {
+    position: fixed;
+    top:30rem;
+    right:0;
+}
+
+.showComments.fixedButton.openFix {
+    right: 80%;
 }
 
 /* GENERAL */
@@ -705,6 +731,21 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+.backLink {
+    position: absolute;
+    top: 1em;
+    z-index: 99999;
+    background-color: #ffffff;
+    color: #ff6161;
+    text-decoration: none;
+    padding:0.5em;
+}
+
+.backLink.bottomLink {
+    position: static;
+    display: block;
 }
 
 .hide {

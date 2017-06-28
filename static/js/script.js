@@ -25,7 +25,8 @@
             paragraphFour: document.getElementById('paragraphFour'),
             articleSection: document.getElementById('articleSection'),
             commentSection: document.getElementById('commentSection'),
-            showComments: document.getElementById('showSub')
+            showComments: document.getElementById('showSub'),
+            showCommentsFixed: document.getElementById('showSubFixed')
         }
     };
 
@@ -72,6 +73,7 @@
         enable: function() {
             if (window.innerWidth < 795 && window.innerWidth > 300) {
                 console.log('sidebar enabled');
+                sidebar.scrollButton();
                 config.elements.articleSection.classList.add('slideable');
                 config.elements.commentSection.classList.add('slide');
                 config.elements.showComments.classList.remove('hide');
@@ -85,21 +87,42 @@
             }
         },
         openClose: function() {
-            config.elements.showComments.addEventListener('click', function(){
-                if (config.elements.commentSection.classList.contains('opened')) {
-                    config.elements.commentSection.classList.remove("opened");
-                    config.elements.articleSection.classList.remove('slideLeft');
-                    document.body.style.overflow = 'auto';
-                    config.elements.showComments.innerText='Comments';
-                    console.log('1');
-                } else {
-                    config.elements.commentSection.classList.add("opened");
-                    config.elements.articleSection.classList.add('slideLeft');
-                    document.body.style.overflow = 'hidden';
-                    config.elements.showComments.innerText='>';
-                    console.log('2');
+            config.elements.showComments.addEventListener('click', check, false);
+            // config.elements.showCommentsFixed.addEventListener('click', check, false);
+                function check() {
+                    if (config.elements.commentSection.classList.contains('opened')) {
+                        config.elements.commentSection.classList.remove("opened");
+                        config.elements.articleSection.classList.remove('slideLeft');
+                        document.body.style.overflow = 'auto';
+                        config.elements.showComments.innerText='Comments';
+                        config.elements.showComments.classList.remove('openFix');
+                        console.log('1');
+                    } else {
+                        config.elements.commentSection.classList.add("opened");
+                        config.elements.articleSection.classList.add('slideLeft');
+                        document.body.style.overflow = 'hidden';
+                        config.elements.showComments.innerText='close >';
+                        config.elements.showComments.classList.add('openFix');
+                        console.log('2');
+                    }
                 }
-            });
+        },
+        scrollButton: function() {
+            // var top = 480;
+            // var listener = function () {
+            //     var y = window.pageYOffset;
+            //
+            //     if (y >= top) {
+            //         config.elements.showComments.classList.add('fixedButton');
+            //         // config.elements.showCommentsFixed.classList.remove('hide');
+            //         console.log('fixed: D');
+            //     } else {
+            //         config.elements.showComments.classList.remove('fixedButton');
+            //         // config.elements.showCommentsFixed.classList.add('hide');
+            //         console.log('nixed: D');
+            //     }
+            // };
+            // window.addEventListener('scroll', listener, false);
         }
     };
 
