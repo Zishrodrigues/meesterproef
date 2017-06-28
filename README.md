@@ -7,9 +7,10 @@ Zishan K. Pasha | V 1.0.0 | [Live link](https://meesterproef-nysbjltikj.now.sh/)
 
 Index of this readme:
 * Project description
-* Course implementation
 * Concept
+* Course implementation
 * Project progress
+* Looking back (reflection)
 * Features (moscow)
 * Data
 * Install guide
@@ -37,7 +38,11 @@ Recent trends have shown that a lot of younger people tend to read the comments 
 #### Desktop version
 ![app-desktop](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/desktop.jpg)
 
+## Concept: Read an article, or be part of one
 
+It's in peoples nature to want to say their peace and express their opinions to their peers. It's also in peoples natures to have a certain curiousity about what other think of subject. My project aims to present readers with a clear overview of articles to browse. They can click on the link and to go the full article page. What makes the article page unique is that people's comments are embedded within the article itself. Meaning that certain spots in the flow of the article will be reserved for comments people posts. These posts will be chosen based on likes.
+
+Readers can read the article, and at the same time see what others have to say about the subject.
 
 ## Course implementation (What a journey this has been)
 
@@ -104,6 +109,9 @@ app.set('view engine', 'ejs');
 * Using Git and Github
 
 Before the minor I really didn't use Git and github much. I've learned how to do all the things I need to do with Git in the command line and am fully using Github's capabilities of issues and project management. For this project I've create my wish list using Issues and used a Github project for small tasks.
+
+[Using issues for wishlist)](https://github.com/Zishrodrigues/meesterproef/issues)
+[Github project)](https://github.com/Zishrodrigues/meesterproef/projects/1)
 
 * Code flow
 
@@ -211,18 +219,11 @@ socket.on('like comment', function(id, article){
 });
 ```
 
-### Closing word on the courses and their implementation
+## Looking back (reflection)
 
-Throughout this project I have not only implemented techniques and skills that I've acquired. But also a way of thinking. Each course has given me a new way to look at coding, ux and work in general. This project was a perfect way to end a great minor, and I look back with great pride at how everything has come together.
+Throughout this project I have not only implemented techniques and skills that I've acquired. But also a way of thinking. Each course has given me a new way to look at coding, ux and work in general. This project was a perfect way to end a great minor, and I look back with great pride at how everything has come together. A point of feedback for myself is leave the concepting phase earlier and start concepting in the browser. Thankfully I managed to do this later on in the project.
 
-[Using issues for wishlist)](https://github.com/Zishrodrigues/meesterproef/issues)
-[Github project)](https://github.com/Zishrodrigues/meesterproef/projects/1)
-
-## Concept: Read an article, or be part of one
-
-It's in peoples nature to want to say their peace and express their opinions to their peers. It's also in peoples natures to have a certain curiousity about what other think of subject. My project aims to present readers with a clear overview of articles to browse. Once they see something that peaks their interest they can click on the link and to go the full article page. What makes the article page unique is that people's comments are embedded within the article itself. Meaning that certain spots in the flow of the article will be reserved for comments people posts. These posts will be choses based on ratings.
-
-Readers can read the article, and at the same time see what others have to say about the subject.
+I feel like I've learned more in these past months than I have in my entire 2,5 years before it. Now I truly feel like I'm ready to take on the last year of CMD!
 
 ## Project progress (Last updated: 28-06-2017)
 
