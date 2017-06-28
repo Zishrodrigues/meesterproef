@@ -1,25 +1,28 @@
 <section class="detailImageWrapper">
     <img src="<%= articles.urlToImage %>" alt="<%= articles.title %>">
+    <a class="backLink" href="/">< Back to overview</a>
     <section class="topComment">
-        <p class="headerQuote">
-            <%= articles.quote %>
-        </p>
+        <h1 class="headerTitle">
+            <%= articles.title %>
+        </h1>
     </section>
     <p>
         <%= articles.date %>
     </p>
-    <h1>
-        <%= articles.title %>
-    </h1>
 </section>
 <article class="detailContent">
+    <!-- <button class="showComments hide" id="showSub">
+        Comments
+    </button> -->
+    <p class="articleQuote">
+        "<%= articles.quote %>"
+    </p>
     <p>
         <%= articles.text1 %>
     </p>
     <section id="articleComment-one" class="textComment hide">
         <div role="button" class="commentIcon" id="iconOne"></div>
         <p>
-            Dit is een comment. Ik schrijf hier mijn mening over het artikel of onderwerp. Als mensen mijn comment lezen krijgen ze een idee over wat ik vind.
         </p>
         <span>John Doe | 10-06-2017</span>
     </section>
@@ -29,7 +32,6 @@
     <section id="articleComment-two" class="textComment hide">
         <div role="button" class="commentIcon" id="iconTwo"></div>
         <p>
-            Dit is een comment. Ik schrijf hier mijn mening over het artikel of onderwerp. Als mensen mijn comment lezen krijgen ze een idee over wat ik vind.
         </p>
         <span>John Doe | 10-06-2017</span>
     </section>
@@ -39,7 +41,6 @@
     <section id="articleComment-three" class="textComment hide">
         <div role="button" class="commentIcon" id="iconThree"></div>
         <p>
-            Dit is een comment. Ik schrijf hier mijn mening over het artikel of onderwerp. Als mensen mijn comment lezen krijgen ze een idee over wat ik vind.
         </p>
         <span>John Doe | 10-06-2017</span>
     </section>
@@ -47,3 +48,4 @@
         <%= articles.text4 %>
     </p>
 </article>
+<a class="backLink bottomLink" href="/">< Back to overview</a>

@@ -22,16 +22,21 @@
             iconThree: document.getElementById('iconThree'),
             paragraphTwo: document.getElementById('paragraphTwo'),
             paragraphThree: document.getElementById('paragraphThree'),
-            paragraphFour: document.getElementById('paragraphFour')
+            paragraphFour: document.getElementById('paragraphFour'),
+            articleSection: document.getElementById('articleSection'),
+            commentSection: document.getElementById('commentSection'),
+            showComments: document.getElementById('showSub'),
+            showCommentsFixed: document.getElementById('showSubFixed')
         }
     };
 
     var app = {
         init: function() { // Initializing the app and calling methods needed on startup
             username.check();
-            listDates.setDay();
             if(window.location.pathname != '/') { // page location check
+                sidebar.openClose();
                 comments.initial();
+                sidebar.enable();
             }
         }
     };
@@ -64,12 +69,72 @@
         }
     };
 
+    var sidebar = {
+        enable: function() {
+            if (window.innerWidth < 795 && window.innerWidth > 300) {
+                console.log('sidebar enabled');
+                sidebar.scrollButton();
+                config.elements.articleSection.classList.add('slideable');
+                config.elements.commentSection.classList.add('slide');
+                config.elements.showComments.classList.remove('hide');
+            } else {
+                config.elements.articleSection.classList.remove('slideable');
+                config.elements.commentSection.classList.remove('slide');
+                config.elements.commentSection.classList.remove("opened");
+                config.elements.showComments.innerText='Comments';
+                config.elements.articleSection.classList.remove('slideLeft');
+                config.elements.showComments.classList.add('hide');
+            }
+        },
+        openClose: function() {
+            config.elements.showComments.addEventListener('click', check, false);
+            // config.elements.showCommentsFixed.addEventListener('click', check, false);
+                function check() {
+                    if (config.elements.commentSection.classList.contains('opened')) {
+                        config.elements.commentSection.classList.remove("opened");
+                        config.elements.articleSection.classList.remove('slideLeft');
+                        document.body.style.overflow = 'auto';
+                        config.elements.showComments.innerText='Comments';
+                        config.elements.showComments.classList.remove('openFix');
+                        console.log('1');
+                    } else {
+                        config.elements.commentSection.classList.add("opened");
+                        config.elements.articleSection.classList.add('slideLeft');
+                        document.body.style.overflow = 'hidden';
+                        config.elements.showComments.innerText='close >';
+                        config.elements.showComments.classList.add('openFix');
+                        console.log('2');
+                    }
+                }
+        },
+        scrollButton: function() {
+            // var top = 480;
+            // var listener = function () {
+            //     var y = window.pageYOffset;
+            //
+            //     if (y >= top) {
+            //         config.elements.showComments.classList.add('fixedButton');
+            //         // config.elements.showCommentsFixed.classList.remove('hide');
+            //         console.log('fixed: D');
+            //     } else {
+            //         config.elements.showComments.classList.remove('fixedButton');
+            //         // config.elements.showCommentsFixed.classList.add('hide');
+            //         console.log('nixed: D');
+            //     }
+            // };
+            // window.addEventListener('scroll', listener, false);
+        }
+    };
+
     var comments = {
         initial: function() {
             comments.place();
             comments.tab();
             config.elements.commentsList.innerHTML = '';
             socket.emit('insert comments');
+            setTimeout(function(){
+                comments.show(config.elements.commentOne, config.elements.paragraphTwo);
+            }, 500);
         },
         place: function(){
             config.elements.commentForm.addEventListener('submit', function(e){  // submit the comment form
@@ -137,22 +202,22 @@
         },
         tab: function() {
             config.elements.iconOne.addEventListener('click', function() {
-                showComment(config.elements.commentOne, config.elements.paragraphTwo);
+                comments.show(config.elements.commentOne, config.elements.paragraphTwo);
             });
             config.elements.iconTwo.addEventListener('click', function() {
-                showComment(config.elements.commentTwo, config.elements.paragraphThree);
+                comments.show(config.elements.commentTwo, config.elements.paragraphThree);
             });
             config.elements.iconThree.addEventListener('click', function() {
-                showComment(config.elements.commentThree, config.elements.paragraphFour);
+                comments.show(config.elements.commentThree, config.elements.paragraphFour);
             });
-            function showComment(id, p) {
-                if (id.classList.contains("openComment")) {
-                    id.classList.remove("openComment");
-                    p.style.paddingTop = '1em';
-                } else {
-                    id.classList.add("openComment");
-                    p.style.paddingTop = id.offsetHeight + 20 + 'px';
-                }
+        },
+        show: function(id, p) {
+            if (id.classList.contains("openComment")) {
+                id.classList.remove("openComment");
+                p.style.paddingTop = '0em';
+            } else {
+                id.classList.add("openComment");
+                p.style.paddingTop = id.offsetHeight + 20 + 'px';
             }
         },
         like: function() {
@@ -172,6 +237,12 @@
             });
         }
     };
+
+    if(window.location.pathname != '/') { // page location check
+        window.addEventListener('resize', function(){
+            sidebar.enable();
+        }, false);
+    }
 
     app.init();
 })();
