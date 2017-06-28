@@ -26,13 +26,13 @@ I've been asked to help think out and develop a prototype which showcases a mult
 Recent trends have shown that a lot of younger people tend to read the comments before even looking at the article, or stop to look at the top comments while reading an article. My concept is to bring these two things together. The top three liked comments are injected into the article itself to readers can read these while reading the articles. If their interest is sparked enough and they want to read further comments this is made possible by using the comments side-panel. Everything happens real-time so if a new comment deserves a spot in the article all readers get it without needing to refresh.
 
 #### Article overview page
-![app-screenshot-1](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/screenshot1-jpg)
+![app-screenshot-1](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/screenshot1.jpg)
 
 #### Article page with comment
-![app-screenshot-2](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/screenshot2-jpg)
+![app-screenshot-2](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/screenshot2.jpg)
 
 #### Comment side panel
-![app-screenshot-3](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/screenshot3-jpg)
+![app-screenshot-3](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/screenshot3.jpg)
 
 #### Desktop version
 ![app-desktop](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/desktop-jpg)
