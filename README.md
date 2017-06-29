@@ -1,7 +1,7 @@
 # Comments | (Meesterproef - Persgroep articles web app)
 ![comments-logo](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/logo.jpg)
 
-Zishan K. Pasha | V 1.0.0 | [Live link](https://meesterproef-yveaamopsy.now.sh/)
+Zishan K. Pasha | V 1.0.0 | [Live link](https://meesterproef-iyxabewckg.now.sh/)
 
 ![persgroep-logo](https://raw.githubusercontent.com/zishrodrigues/meesterproef/master/readme-files/pg-logo.png)
 
