@@ -107,7 +107,7 @@
             socket.emit('insert comments');
             setTimeout(function(){
                 comments.show(config.elements.commentOne, config.elements.paragraphTwo);
-            }, 500);
+            }, 1500);
         },
         place: function(){
             config.elements.commentForm.addEventListener('submit', function(e){  // submit the comment form
